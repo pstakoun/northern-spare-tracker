@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "studentwindow.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -13,7 +15,11 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    StudentWindow *studentWindow;
     ~MainWindow();
+
+private slots:
+    void newStudent();
 
 private:
     Ui::MainWindow *ui;

@@ -6,6 +6,13 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    connect(ui->newStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
+}
+
+void MainWindow::newStudent()
+{
+   studentWindow = new StudentWindow;
+   studentWindow->show();
 }
 
 MainWindow::~MainWindow()
