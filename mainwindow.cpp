@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::newStudent()
 {
    studentWindow = new StudentWindow;
-   studentWindow->show();
+   setCentralWidget(studentWindow);
 }
 
 MainWindow::~MainWindow()
