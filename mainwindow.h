@@ -5,6 +5,8 @@
 
 #include "studentwindow.h"
 
+class StudentWindow;
+
 namespace Ui {
 class MainWindow;
 }
