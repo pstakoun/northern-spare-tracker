@@ -25,10 +25,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    studentwindow.cpp
+    studentwindow.cpp \
+    student.cpp
 
 HEADERS  += mainwindow.h \
-    studentwindow.h
+    studentwindow.h \
+    student.h
 
 FORMS    += mainwindow.ui \
     studentwindow.ui
