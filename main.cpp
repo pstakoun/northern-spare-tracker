@@ -11,9 +11,7 @@ int main(int argc, char *argv[])
     mainWindow.show();
 
     std::vector<Student> students;
-
     students.push_back(Student("123")); // TODO
-
     mainWindow.setStudents(students);
 
     return app.exec();

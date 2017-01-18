@@ -20,6 +20,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     StudentWindow *studentWindow;
     void setStudents(std::vector<Student>);
+    void update();
     ~MainWindow();
 
 private slots:
@@ -27,7 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    std::vector<Student> students;
+    static std::vector<Student> students;
 };
 
 #endif // MAINWINDOW_H

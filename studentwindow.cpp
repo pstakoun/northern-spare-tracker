@@ -13,12 +13,14 @@ StudentWindow::StudentWindow(QWidget *parent) :
 void StudentWindow::cancel()
 {
     mainWindow = new MainWindow;
+    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 
 void StudentWindow::done()
 {
     mainWindow = new MainWindow;
+    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 
