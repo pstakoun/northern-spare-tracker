@@ -26,11 +26,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     studentwindow.cpp \
-    student.cpp
+    student.cpp \
+    studentio.cpp
 
 HEADERS  += mainwindow.h \
     studentwindow.h \
-    student.h
+    student.h \
+    studentio.h
 
 FORMS    += mainwindow.ui \
     studentwindow.ui

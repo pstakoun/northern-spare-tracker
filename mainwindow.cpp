@@ -20,9 +20,13 @@ void MainWindow::newStudent()
 void MainWindow::setStudents(std::vector<Student> s)
 {
     students = s;
-    ui->studentTable->setRowCount(1);
-    ui->studentTable->setColumnCount(1);
-    ui->studentTable->setItem(0, 0, new QTableWidgetItem(students[0].getId()));
+    update();
+}
+
+void MainWindow::addStudent(Student s)
+{
+    students.push_back(s);
+    update();
 }
 
 void MainWindow::update()

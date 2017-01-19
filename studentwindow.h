@@ -1,7 +1,6 @@
 #ifndef STUDENTWINDOW_H
 #define STUDENTWINDOW_H
 
-#include <QMainWindow>
 #include "mainwindow.h"
 
 class MainWindow;

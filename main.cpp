@@ -1,18 +1,16 @@
 #include "mainwindow.h"
+#include "studentio.h"
 #include <QApplication>
-#include <QDebug>
-#include <vector>
-#include <student.h>
 
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     MainWindow mainWindow;
+    StudentIO studentIO;
+
     mainWindow.show();
 
-    std::vector<Student> students;
-    students.push_back(Student("123")); // TODO
-    mainWindow.setStudents(students);
+    mainWindow.setStudents(studentIO.readStudents());
 
     return app.exec();
 }

@@ -20,6 +20,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     StudentWindow *studentWindow;
     void setStudents(std::vector<Student>);
+    void addStudent(Student);
     void update();
     ~MainWindow();
 
