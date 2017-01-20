@@ -9,5 +9,6 @@ std::vector<Student> StudentIO::readStudents()
 {
     std::vector<Student> students;
     students.push_back(Student("123"));
+    students.push_back(Student("321"));
     return students;
 }

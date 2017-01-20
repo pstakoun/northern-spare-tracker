@@ -14,41 +14,38 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QWidget" name="gridLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>580</width>
-      <height>380</height>
-     </rect>
-    </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <item row="2" column="0" colspan="2" alignment="Qt::AlignHCenter">
-      <widget class="QTableWidget" name="studentTable"/>
-     </item>
-     <item row="1" column="1" alignment="Qt::AlignRight">
-      <widget class="QComboBox" name="dayComboBox"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLineEdit" name="search"/>
-     </item>
-     <item row="3" column="0" colspan="2" alignment="Qt::AlignHCenter">
-      <widget class="QPushButton" name="newStudentButton">
-       <property name="text">
-        <string>New</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
-      <widget class="QLabel" name="title">
-       <property name="text">
-        <string>Find Student</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item row="2" column="0" colspan="2">
+       <widget class="QTableWidget" name="studentTable"/>
+      </item>
+      <item row="1" column="1" alignment="Qt::AlignRight">
+       <widget class="QComboBox" name="dayComboBox"/>
+      </item>
+      <item row="1" column="0">
+       <widget class="QLineEdit" name="search"/>
+      </item>
+      <item row="3" column="0" colspan="2" alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="newStudentButton">
+        <property name="text">
+         <string>New</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="title">
+        <property name="text">
+         <string>Find Student</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

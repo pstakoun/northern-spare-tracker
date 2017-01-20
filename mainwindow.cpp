@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->studentTable->horizontalHeader()->hide();
+    ui->studentTable->verticalHeader()->hide();
+    ui->studentTable->setColumnCount(4);
     connect(ui->newStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
 }
 
@@ -31,9 +34,10 @@ void MainWindow::addStudent(Student s)
 
 void MainWindow::update()
 {
-    ui->studentTable->setRowCount(1);
-    ui->studentTable->setColumnCount(1);
-    ui->studentTable->setItem(0, 0, new QTableWidgetItem(students[0].getId()));
+    ui->studentTable->setRowCount(students.size());
+    for (int i = 0; i < students.size(); i++) {
+        ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i].getId()));
+    }
 }
 
 MainWindow::~MainWindow()
