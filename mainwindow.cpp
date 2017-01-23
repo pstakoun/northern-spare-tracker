@@ -8,8 +8,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->studentTable->horizontalHeader()->hide();
-    ui->studentTable->verticalHeader()->hide();
     ui->studentTable->setColumnCount(4);
     connect(ui->newStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
 }
