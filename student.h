@@ -6,8 +6,10 @@
 class Student
 {
 public:
-    Student(QString);
+    Student(QString, QString, QString);
     QString getId();
+    QString getFName();
+    QString getLName();
 
 private:
     QString id;
