@@ -36,3 +36,7 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
     studentwindow.ui
+
+DISTFILES += \
+    data/day1.csv \
+    data/day2.csv
