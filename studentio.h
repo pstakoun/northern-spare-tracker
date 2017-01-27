@@ -6,6 +6,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <QCoreApplication>
 #include "student.h"
 
 class StudentIO
@@ -17,12 +18,6 @@ public:
 
 private:
     std::vector<std::string> header;
-    std::ifstream dayOneFileIn;
-    std::ifstream dayTwoFileIn;
-    std::ifstream customFileIn;
-    std::ofstream dayOneFileOut;
-    std::ofstream dayTwoFileOut;
-    std::ofstream customFileOut;
 };
 
 #endif // STUDENTREADER_H
