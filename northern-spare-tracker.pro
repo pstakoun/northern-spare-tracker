@@ -39,4 +39,5 @@ FORMS    += mainwindow.ui \
 
 DISTFILES += \
     data/day1.csv \
-    data/day2.csv
+    data/day2.csv \
+    data/custom.csv

@@ -19,8 +19,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     StudentWindow *studentWindow;
-    void setStudents(std::vector<Student>);
-    void addStudent(Student);
+    void setStudents(std::vector<Student*>);
+    void addStudent(Student*);
     void update();
     ~MainWindow();
 
@@ -29,7 +29,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    static std::vector<Student> students;
+    static std::vector<Student*> students;
 };
 
 #endif // MAINWINDOW_H

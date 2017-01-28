@@ -1,5 +1,5 @@
-#ifndef STUDENTREADER_H
-#define STUDENTREADER_H
+#ifndef STUDENTIO_H
+#define STUDENTIO_H
 
 #include <vector>
 #include <iostream>
@@ -13,11 +13,7 @@ class StudentIO
 {
 public:
     StudentIO();
-    std::vector<std::string> readHeader();
-    std::vector<Student> readStudents();
-
-private:
-    std::vector<std::string> header;
+    std::vector<Student*> readStudents();
 };
 
-#endif // STUDENTREADER_H
+#endif // STUDENTIO_H

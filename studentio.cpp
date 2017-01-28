@@ -2,7 +2,7 @@
 
 StudentIO::StudentIO()
 {
-    header = readHeader();
+
 }
 
 static inline std::string &rtrim(std::string &s) {
@@ -11,26 +11,29 @@ static inline std::string &rtrim(std::string &s) {
     return s;
 }
 
-std::vector<std::string> StudentIO::readHeader()
+std::vector<Student*> StudentIO::readStudents()
 {
+    std::string path = QCoreApplication::applicationDirPath().toStdString() + "/data/custom.csv";
+
+    std::vector<Student*> students;
+
     std::ifstream fileIn;
-    fileIn.open(QCoreApplication::applicationDirPath().toStdString() + "/data/day1.csv");
+    fileIn.open(path);
+
+    if (!fileIn.is_open())
+        return students;
+
     std::string line;
-    if (fileIn.is_open()) {
-        std::getline(fileIn, line);
-        fileIn.close();
-    }
-    std::vector<std::string> result;
+
+    std::getline(fileIn, line);
+
+    std::vector<std::string> header;
     std::istringstream ss(rtrim(line));
     std::string token;
     while(std::getline(ss, token, ',')) {
-        result.push_back(token);
+        header.push_back(token);
     }
-    return result;
-}
 
-std::vector<Student> StudentIO::readStudents()
-{
     int idIndex = -1, fnameIndex = -1, lnameIndex = -1;
     for (int i = 0; i < header.size(); i++) {
         if ("student_no" == header[i])
@@ -40,7 +43,20 @@ std::vector<Student> StudentIO::readStudents()
         else if ("preferred_surname" == header[i])
             lnameIndex = i;
     }
-    std::vector<Student> students;
-    students.push_back(Student(QString::number(idIndex), QString::number(fnameIndex), QString::number(lnameIndex)));
+
+    if (idIndex == -1 || fnameIndex == -1 || lnameIndex == -1)
+        return students;
+
+    std::vector<std::string> args;
+    while (std::getline(fileIn, line)) {
+        std::istringstream ss(rtrim(line));
+        std::string token;
+        while(std::getline(ss, token, ',')) {
+            args.push_back(token);
+        }
+        students.push_back(new Student(QString::fromStdString(args[idIndex]), QString::fromStdString(args[fnameIndex]), QString::fromStdString(args[lnameIndex])));
+        args.clear();
+    }
+
     return students;
 }

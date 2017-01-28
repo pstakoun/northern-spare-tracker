@@ -1,7 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-std::vector<Student> MainWindow::students;
+std::vector<Student*> MainWindow::students;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,13 +20,13 @@ void MainWindow::newStudent()
    setCentralWidget(studentWindow);
 }
 
-void MainWindow::setStudents(std::vector<Student> s)
+void MainWindow::setStudents(std::vector<Student*> s)
 {
     students = s;
     update();
 }
 
-void MainWindow::addStudent(Student s)
+void MainWindow::addStudent(Student *s)
 {
     students.push_back(s);
     update();
@@ -36,9 +36,9 @@ void MainWindow::update()
 {
     ui->studentTable->setRowCount(students.size());
     for (int i = 0; i < students.size(); i++) {
-        ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i].getId()));
-        ui->studentTable->setItem(i, 1, new QTableWidgetItem(students[i].getFName()));
-        ui->studentTable->setItem(i, 2, new QTableWidgetItem(students[i].getLName()));
+        ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i]->getId()));
+        ui->studentTable->setItem(i, 1, new QTableWidgetItem(students[i]->getFName()));
+        ui->studentTable->setItem(i, 2, new QTableWidgetItem(students[i]->getLName()));
     }
 }
 

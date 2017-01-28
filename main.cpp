@@ -6,11 +6,10 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     MainWindow mainWindow;
-    StudentIO *studentIO = new StudentIO();
+    StudentIO studentIO;
 
     mainWindow.show();
-
-    mainWindow.setStudents(studentIO->readStudents());
+    mainWindow.setStudents(studentIO.readStudents());
 
     return app.exec();
 }
