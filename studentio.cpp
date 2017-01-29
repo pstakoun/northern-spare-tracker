@@ -13,7 +13,7 @@ static inline std::string &rtrim(std::string &s) {
 
 std::vector<Student*> StudentIO::readStudents()
 {
-    std::string path = QCoreApplication::applicationDirPath().toStdString() + "/data/custom.csv";
+    std::string path = QCoreApplication::applicationDirPath().toStdString() + "/data/day1.csv";
 
     std::vector<Student*> students;
 

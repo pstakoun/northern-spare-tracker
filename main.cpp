@@ -8,8 +8,8 @@ int main(int argc, char *argv[])
     MainWindow mainWindow;
     StudentIO studentIO;
 
-    mainWindow.show();
     mainWindow.setStudents(studentIO.readStudents());
+    mainWindow.show();
 
     return app.exec();
 }
