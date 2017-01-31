@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->studentTable->setColumnCount(3);
+    ui->studentTable->setHorizontalHeaderItem(0, new QTableWidgetItem("ID"));
+    ui->studentTable->setHorizontalHeaderItem(1, new QTableWidgetItem("First Name"));
+    ui->studentTable->setHorizontalHeaderItem(2, new QTableWidgetItem("Last Name"));
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
