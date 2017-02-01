@@ -34,7 +34,7 @@ std::vector<Student*> StudentIO::readStudents()
         header.push_back(token);
     }
 
-    int idIndex = -1, fnameIndex = -1, lnameIndex = -1;
+    int idIndex = -1, fnameIndex = -1, lnameIndex = -1, periodIndex = -1;
     for (int i = 0; i < header.size(); i++) {
         if ("student_no" == header[i])
             idIndex = i;
@@ -42,9 +42,11 @@ std::vector<Student*> StudentIO::readStudents()
             fnameIndex = i;
         else if ("preferred_surname" == header[i])
             lnameIndex = i;
+        else if ("school_period" == header[i])
+            periodIndex = i;
     }
 
-    if (idIndex == -1 || fnameIndex == -1 || lnameIndex == -1)
+    if (idIndex == -1 || fnameIndex == -1 || lnameIndex == -1 || periodIndex == -1)
         return students;
 
     std::vector<std::string> args;
@@ -54,6 +56,7 @@ std::vector<Student*> StudentIO::readStudents()
         while(std::getline(ss, token, ',')) {
             args.push_back(token);
         }
+        // TODO find and modify student with ID if exists
         students.push_back(new Student(QString::fromStdString(args[idIndex]), QString::fromStdString(args[fnameIndex]), QString::fromStdString(args[lnameIndex])));
         args.clear();
     }
