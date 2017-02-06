@@ -5,8 +5,10 @@
 #include <vector>
 #include "student.h"
 #include "studentwindow.h"
+#include "importwindow.h"
 
 class StudentWindow;
+class ImportWindow;
 
 namespace Ui {
 class MainWindow;
@@ -19,6 +21,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     StudentWindow *studentWindow;
+    ImportWindow *importWindow;
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
     void update();
@@ -26,6 +29,7 @@ public:
 
 private slots:
     void newStudent();
+    void importStudents();
 
 private:
     Ui::MainWindow *ui;

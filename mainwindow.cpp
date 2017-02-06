@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
+    connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
 }
 
@@ -22,6 +23,12 @@ void MainWindow::newStudent()
 {
    studentWindow = new StudentWindow;
    setCentralWidget(studentWindow);
+}
+
+void MainWindow::importStudents()
+{
+   importWindow = new ImportWindow;
+   setCentralWidget(importWindow);
 }
 
 void MainWindow::setStudents(std::vector<Student*> s)

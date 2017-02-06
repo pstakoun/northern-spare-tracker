@@ -27,15 +27,18 @@ SOURCES += main.cpp\
         mainwindow.cpp \
     studentwindow.cpp \
     student.cpp \
-    studentio.cpp
+    studentio.cpp \
+    importwindow.cpp
 
 HEADERS  += mainwindow.h \
     studentwindow.h \
     student.h \
-    studentio.h
+    studentio.h \
+    importwindow.h
 
 FORMS    += mainwindow.ui \
-    studentwindow.ui
+    studentwindow.ui \
+    importwindow.ui
 
 DISTFILES += \
     data/day1.csv \
