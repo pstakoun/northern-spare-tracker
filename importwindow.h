@@ -2,6 +2,9 @@
 #define IMPORTWINDOW_H
 
 #include "mainwindow.h"
+#include <QDropEvent>
+#include <QMimeData>
+#include <QUrl>
 
 class MainWindow;
 
@@ -17,6 +20,10 @@ public:
     explicit ImportWindow(QWidget *parent = 0);
     MainWindow *mainWindow;
     ~ImportWindow();
+
+protected:
+    void dropEvent(QDropEvent *ev);
+    void dragEnterEvent(QDragEnterEvent *ev);
 
 private:
     Ui::ImportWindow *ui;
