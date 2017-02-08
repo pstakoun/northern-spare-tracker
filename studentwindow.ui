@@ -17,32 +17,11 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QLabel" name="sparesLabel">
-        <property name="text">
-         <string>Spares</string>
-        </property>
-       </widget>
-      </item>
       <item row="2" column="1" alignment="Qt::AlignVCenter">
        <widget class="QLineEdit" name="fname"/>
       </item>
-      <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QLabel" name="fnameLabel">
-        <property name="text">
-         <string>First Name</string>
-        </property>
-       </widget>
-      </item>
       <item row="3" column="1" alignment="Qt::AlignVCenter">
        <widget class="QLineEdit" name="lname"/>
-      </item>
-      <item row="0" column="0" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Student Information</string>
-        </property>
-       </widget>
       </item>
       <item row="1" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
        <widget class="QLabel" name="idLabel">
@@ -51,7 +30,17 @@
         </property>
        </widget>
       </item>
-      <item row="4" column="1">
+      <item row="1" column="1" alignment="Qt::AlignVCenter">
+       <widget class="QLineEdit" name="id"/>
+      </item>
+      <item row="0" column="0" colspan="3" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Student Information</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
        <layout class="QGridLayout" name="sparesLayout">
         <item row="0" column="0" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QCheckBox" name="checkBoxA">
@@ -111,17 +100,7 @@
         </item>
        </layout>
       </item>
-      <item row="3" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
-       <widget class="QLabel" name="lnameLabel">
-        <property name="text">
-         <string>Last Name</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1" alignment="Qt::AlignVCenter">
-       <widget class="QLineEdit" name="id"/>
-      </item>
-      <item row="5" column="0" colspan="2">
+      <item row="5" column="0" colspan="3">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QPushButton" name="cancelButton">
@@ -138,6 +117,30 @@
          </widget>
         </item>
        </layout>
+      </item>
+      <item row="1" column="2" rowspan="3">
+       <widget class="QGraphicsView" name="picture"/>
+      </item>
+      <item row="2" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+       <widget class="QLabel" name="fnameLabel">
+        <property name="text">
+         <string>First Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+       <widget class="QLabel" name="lnameLabel">
+        <property name="text">
+         <string>Last Name</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0" alignment="Qt::AlignRight|Qt::AlignVCenter">
+       <widget class="QLabel" name="sparesLabel">
+        <property name="text">
+         <string>Spares</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>
