@@ -17,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->studentTable->setSortingEnabled(true);
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
+    setStudents(studentIO.readStudents());
 }
 
 void MainWindow::newStudent()

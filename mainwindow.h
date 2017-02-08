@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <vector>
 #include "student.h"
+#include "studentio.h"
 #include "studentwindow.h"
 #include "importwindow.h"
 
@@ -20,8 +21,6 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    StudentWindow *studentWindow;
-    ImportWindow *importWindow;
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
     void update();
@@ -33,6 +32,9 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    StudentIO studentIO;
+    StudentWindow *studentWindow;
+    ImportWindow *importWindow;
     static std::vector<Student*> students;
 };
 

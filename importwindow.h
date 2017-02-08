@@ -18,7 +18,6 @@ class ImportWindow : public QMainWindow
 
 public:
     explicit ImportWindow(QWidget *parent = 0);
-    MainWindow *mainWindow;
     ~ImportWindow();
 
 protected:
@@ -27,6 +26,8 @@ protected:
 
 private:
     Ui::ImportWindow *ui;
+    MainWindow *mainWindow;
+    StudentIO studentIO;
 };
 
 #endif // IMPORTWINDOW_H

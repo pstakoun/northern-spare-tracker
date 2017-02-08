@@ -63,3 +63,8 @@ std::vector<Student*> StudentIO::readStudents()
 
     return students;
 }
+
+void StudentIO::uploadFile(QUrl url)
+{
+
+}
