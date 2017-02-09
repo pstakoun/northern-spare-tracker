@@ -60,12 +60,25 @@ std::vector<Student*> StudentIO::readStudents()
             while(std::getline(ss, token, ',')) {
                 args.push_back(token);
             }
-            // TODO find and modify student with ID if exists
-            Student *newStudent = new Student(QString::fromStdString(args[idIndex]),
+
+            Student *newStudent = NULL;
+
+            foreach (Student *student, students) {
+                if (student->getId().compare(QString::fromStdString(args[idIndex])) == 0) {
+                    newStudent = student;
+                    newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
+                    break;
+                }
+            }
+
+            if (newStudent == NULL) {
+                newStudent = new Student(QString::fromStdString(args[idIndex]),
                                              QString::fromStdString(args[fnameIndex]),
                                              QString::fromStdString(args[lnameIndex]));
-            newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
-            students.push_back(newStudent);
+                newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
+                students.push_back(newStudent);
+            }
+
             args.clear();
         }
     }
