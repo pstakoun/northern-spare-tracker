@@ -18,7 +18,7 @@ std::vector<Student*> StudentIO::readStudents()
 
     std::vector<Student*> students;
 
-    for (int i = 0; i < paths.length; i++) {
+    for (int i = 0; i < sizeof(paths); i++) {
         std::string path = paths[i];
 
         std::ifstream fileIn;
@@ -61,10 +61,10 @@ std::vector<Student*> StudentIO::readStudents()
                 args.push_back(token);
             }
             // TODO find and modify student with ID if exists
-            Student newStudent = new Student(QString::fromStdString(args[idIndex]),
+            Student *newStudent = new Student(QString::fromStdString(args[idIndex]),
                                              QString::fromStdString(args[fnameIndex]),
                                              QString::fromStdString(args[lnameIndex]));
-            newStudent.addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
+            newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
             students.push_back(newStudent);
             args.clear();
         }
