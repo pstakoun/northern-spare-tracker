@@ -27,7 +27,7 @@ QString Student::getLName()
     return lname;
 }
 
-bool Student::addSpare(int i)
+void Student::addSpare(int i)
 {
     isSpare[i] = true;
 }
@@ -35,4 +35,9 @@ bool Student::addSpare(int i)
 void Student::removeSpare(int i)
 {
     isSpare[i] = false;
+}
+
+bool Student::hasSpare(int i)
+{
+    return isSpare[i];
 }

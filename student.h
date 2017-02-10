@@ -10,8 +10,9 @@ public:
     QString getId();
     QString getFName();
     QString getLName();
-    bool addSpare(int);
+    void addSpare(int);
     void removeSpare(int);
+    bool hasSpare(int);
 
 private:
     QString id;

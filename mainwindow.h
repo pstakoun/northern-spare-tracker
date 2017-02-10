@@ -29,6 +29,7 @@ public:
 private slots:
     void newStudent();
     void importStudents();
+    void update(int);
 
 private:
     Ui::MainWindow *ui;
