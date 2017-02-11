@@ -3,13 +3,16 @@
 QString id;
 QString fname;
 QString lname;
-bool isSpare[8] = { false };
+bool isSpare[8];
 
 Student::Student(QString a, QString b, QString c)
 {
     id = a;
     fname = b;
     lname = c;
+    for (int i = 0; i < sizeof(isSpare); i++) {
+        isSpare[i] = false;
+    }
 }
 
 QString Student::getId()
