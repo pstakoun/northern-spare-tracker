@@ -59,6 +59,10 @@ void MainWindow::update()
         ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i]->getId()));
         ui->studentTable->setItem(i, 1, new QTableWidgetItem(students[i]->getFName()));
         ui->studentTable->setItem(i, 2, new QTableWidgetItem(students[i]->getLName()));
+        QCheckBox* signInCheckBox = new QCheckBox();
+        ui->studentTable->setCellWidget(i, 3, signInCheckBox);
+        QPushButton* editButton = new QPushButton();
+        ui->studentTable->setCellWidget(i, 4, editButton);
     }
     ui->studentTable->setSortingEnabled(true);
 }
@@ -87,6 +91,10 @@ void MainWindow::update(int period)
             ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
             ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
             ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
+            QCheckBox* signInCheckBox = new QCheckBox();
+            ui->studentTable->setCellWidget(currentIndex, 3, signInCheckBox);
+            QPushButton* editButton = new QPushButton();
+            ui->studentTable->setCellWidget(currentIndex, 4, editButton);
             currentIndex++;
         }
     }
