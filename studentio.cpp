@@ -66,7 +66,7 @@ std::vector<Student*> StudentIO::readStudents()
             foreach (Student *student, students) {
                 if (student->getId().compare(QString::fromStdString(args[idIndex])) == 0) {
                     newStudent = student;
-                    newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
+                    newStudent->addSpare(std::stoi(args[periodIndex]) + i * NUM_PERIODS - 1);
                     break;
                 }
             }
@@ -75,7 +75,7 @@ std::vector<Student*> StudentIO::readStudents()
                 newStudent = new Student(QString::fromStdString(args[idIndex]),
                                              QString::fromStdString(args[fnameIndex]),
                                              QString::fromStdString(args[lnameIndex]));
-                newStudent->addSpare(std::stoi(args[periodIndex]) + i * 4 - 1);
+                newStudent->addSpare(std::stoi(args[periodIndex]) + i * NUM_PERIODS - 1);
                 students.push_back(newStudent);
             }
 
