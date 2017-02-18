@@ -24,19 +24,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+    mainwindow.cpp \
     studentwindow.cpp \
     student.cpp \
     studentio.cpp \
     importwindow.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS += mainwindow.h \
     studentwindow.h \
     student.h \
     studentio.h \
     importwindow.h
 
-FORMS    += mainwindow.ui \
+FORMS += mainwindow.ui \
     studentwindow.ui \
     importwindow.ui
 

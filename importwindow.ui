@@ -34,7 +34,7 @@
        </spacer>
       </item>
       <item row="0" column="1" colspan="2">
-       <widget class="QComboBox" name="comboBox">
+       <widget class="QComboBox" name="importTypeComboBox">
         <item>
          <property name="text">
           <string>Type</string>
@@ -76,7 +76,7 @@
       <item row="1" column="1" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Import Students</string>
+         <string>Drag and Drop to Import</string>
         </property>
        </widget>
       </item>

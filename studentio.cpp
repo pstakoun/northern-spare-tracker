@@ -86,7 +86,12 @@ std::vector<Student*> StudentIO::readStudents()
     return students;
 }
 
-void StudentIO::uploadFile(QUrl url)
+void StudentIO::uploadSpares(int day, QUrl url)
 {
+    // TODO
+}
 
+void StudentIO::uploadPictures(QUrl url)
+{
+    // TODO
 }

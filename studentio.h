@@ -15,7 +15,8 @@ class StudentIO
 public:
     StudentIO();
     std::vector<Student*> readStudents();
-    void uploadFile(QUrl);
+    void uploadSpares(int, QUrl);
+    void uploadPictures(QUrl);
 };
 
 #endif // STUDENTIO_H
