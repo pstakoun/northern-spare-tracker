@@ -2,6 +2,7 @@
 #define STUDENT_H
 
 #include <QString>
+#include <QUrl>
 
 static const int NUM_PERIODS = 4;
 static const int NUM_DAYS = 2;
@@ -13,14 +14,16 @@ public:
     QString getId();
     QString getFName();
     QString getLName();
+    QUrl getPicture();
     void addSpare(int);
     void removeSpare(int);
     bool hasSpare(int);
 
 private:
     QString id;
-    QString fname;
-    QString lname;
+    QString fName;
+    QString lName;
+    QUrl picture;
     bool isSpare[NUM_PERIODS * NUM_DAYS];
 };
 

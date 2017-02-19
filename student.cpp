@@ -1,15 +1,11 @@
 #include "student.h"
 
-QString id;
-QString fname;
-QString lname;
-bool isSpare[8];
-
-Student::Student(QString a, QString b, QString c)
+Student::Student(QString a, QString b, QString c, QUrl d)
 {
     id = a;
-    fname = b;
-    lname = c;
+    fName = b;
+    lName = c;
+    picture = d;
     for (int i = 0; i < sizeof(isSpare); i++) {
         isSpare[i] = false;
     }
@@ -22,12 +18,17 @@ QString Student::getId()
 
 QString Student::getFName()
 {
-    return fname;
+    return fName;
 }
 
 QString Student::getLName()
 {
-    return lname;
+    return lName;
+}
+
+QUrl Student::getPicture()
+{
+    return picture;
 }
 
 void Student::addSpare(int i)
