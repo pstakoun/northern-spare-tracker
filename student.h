@@ -10,7 +10,7 @@ static const int NUM_DAYS = 2;
 class Student
 {
 public:
-    Student(QString, QString, QString);
+    Student(QString, QString, QString, QUrl);
     QString getId();
     QString getFName();
     QString getLName();

@@ -74,7 +74,8 @@ std::vector<Student*> StudentIO::readStudents()
             if (newStudent == NULL) {
                 newStudent = new Student(QString::fromStdString(args[idIndex]),
                                              QString::fromStdString(args[fnameIndex]),
-                                             QString::fromStdString(args[lnameIndex]));
+                                             QString::fromStdString(args[lnameIndex]),
+                                             QUrl::fromLocalFile(QString::fromStdString(QCoreApplication::applicationDirPath().toStdString() + "/photos/"+args[idIndex]+".BMP")));
                 newStudent->addSpare(std::stoi(args[periodIndex]) + i * NUM_PERIODS - 1);
                 students.push_back(newStudent);
             }
