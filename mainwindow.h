@@ -24,7 +24,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
-    void editStudent();
+    void editStudent(Student*);
     void update();
     ~MainWindow();
 

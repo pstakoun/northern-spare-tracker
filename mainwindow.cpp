@@ -25,7 +25,17 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::handleDoubleClick(int row, int col)
 {
-    // TODO
+    if (col == ui->studentTable->columnCount() - 1) {
+        // TODO sign in
+    } else {
+        QString id = ui->studentTable->item(row, 0)->text();
+        for (int i = 0; i < students.size(); i++) {
+            if (id == students[i]->getId()) {
+                editStudent(students[i]);
+                break;
+            }
+        }
+    }
 }
 
 void MainWindow::newStudent()
@@ -40,10 +50,10 @@ void MainWindow::importStudents()
    setCentralWidget(importWindow);
 }
 
-void MainWindow::editStudent()
+void MainWindow::editStudent(Student *s)
 {
    studentWindow = new StudentWindow;
-   studentWindow->setStudent(students[0]); // TODO get correct student
+   studentWindow->setStudent(s);
    setCentralWidget(studentWindow);
 }
 
