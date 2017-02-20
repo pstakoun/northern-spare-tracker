@@ -29,6 +29,7 @@ public:
 
 private slots:
     void newStudent();
+    void editStudent();
     void importStudents();
     void update(int);
 

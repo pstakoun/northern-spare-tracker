@@ -8,12 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ui->studentTable->setColumnCount(5);
+    ui->studentTable->setColumnCount(4);
     ui->studentTable->setHorizontalHeaderItem(0, new QTableWidgetItem("ID"));
     ui->studentTable->setHorizontalHeaderItem(1, new QTableWidgetItem("First Name"));
     ui->studentTable->setHorizontalHeaderItem(2, new QTableWidgetItem("Last Name"));
     ui->studentTable->setHorizontalHeaderItem(3, new QTableWidgetItem("Sign In"));
-    ui->studentTable->setHorizontalHeaderItem(4, new QTableWidgetItem("Edit"));
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
@@ -26,6 +25,13 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::newStudent()
 {
    studentWindow = new StudentWindow;
+   setCentralWidget(studentWindow);
+}
+
+void MainWindow::editStudent()
+{
+   studentWindow = new StudentWindow;
+   studentWindow->setStudent(students[0]); // TODO get correct student
    setCentralWidget(studentWindow);
 }
 
@@ -62,6 +68,7 @@ void MainWindow::update()
         QCheckBox* signInCheckBox = new QCheckBox();
         ui->studentTable->setCellWidget(i, 3, signInCheckBox);
         QPushButton* editButton = new QPushButton();
+        connect(editButton, SIGNAL(released()), this, SLOT(editStudent()));
         ui->studentTable->setCellWidget(i, 4, editButton);
     }
     ui->studentTable->setSortingEnabled(true);
@@ -93,8 +100,6 @@ void MainWindow::update(int period)
             ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
             QCheckBox* signInCheckBox = new QCheckBox();
             ui->studentTable->setCellWidget(currentIndex, 3, signInCheckBox);
-            QPushButton* editButton = new QPushButton();
-            ui->studentTable->setCellWidget(currentIndex, 4, editButton);
             currentIndex++;
         }
     }

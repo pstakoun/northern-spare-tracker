@@ -17,6 +17,8 @@ public:
     explicit StudentWindow(QWidget *parent = 0);
     MainWindow *mainWindow;
     ~StudentWindow();
+    void setStudent(Student*);
+    void loadPicture();
 
 private slots:
     void cancel();
@@ -24,6 +26,7 @@ private slots:
 
 private:
     Ui::StudentWindow *ui;
+    Student *student;
 };
 
 #endif // STUDENTWINDOW_H
