@@ -24,15 +24,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
-    void editStudent(Student*);
     void update();
     ~MainWindow();
 
 private slots:
+    void handleDoubleClick(int, int);
     void newStudent();
     void importStudents();
     void update(int);
-    void handleDoubleClick(int, int);
+    void search(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -40,6 +40,7 @@ private:
     StudentWindow *studentWindow;
     ImportWindow *importWindow;
     static std::vector<Student*> students;
+    void editStudent(Student*);
 };
 
 #endif // MAINWINDOW_H

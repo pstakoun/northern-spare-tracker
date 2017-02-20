@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
+    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
     setStudents(studentIO.readStudents());
 }
 
@@ -113,6 +114,11 @@ void MainWindow::update(int period)
         }
     }
     ui->studentTable->setSortingEnabled(true);
+}
+
+void MainWindow::search(QString query)
+{
+
 }
 
 MainWindow::~MainWindow()
