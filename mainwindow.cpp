@@ -16,10 +16,16 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
-    connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
-    connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
+    connect(ui->studentTable, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(handleDoubleClick(int, int)));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
+    connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
+    connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
     setStudents(studentIO.readStudents());
+}
+
+void MainWindow::handleDoubleClick(int row, int col)
+{
+    // TODO
 }
 
 void MainWindow::newStudent()
@@ -28,17 +34,17 @@ void MainWindow::newStudent()
    setCentralWidget(studentWindow);
 }
 
+void MainWindow::importStudents()
+{
+   importWindow = new ImportWindow;
+   setCentralWidget(importWindow);
+}
+
 void MainWindow::editStudent()
 {
    studentWindow = new StudentWindow;
    studentWindow->setStudent(students[0]); // TODO get correct student
    setCentralWidget(studentWindow);
-}
-
-void MainWindow::importStudents()
-{
-   importWindow = new ImportWindow;
-   setCentralWidget(importWindow);
 }
 
 void MainWindow::setStudents(std::vector<Student*> s)
@@ -65,11 +71,6 @@ void MainWindow::update()
         ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i]->getId()));
         ui->studentTable->setItem(i, 1, new QTableWidgetItem(students[i]->getFName()));
         ui->studentTable->setItem(i, 2, new QTableWidgetItem(students[i]->getLName()));
-        QCheckBox* signInCheckBox = new QCheckBox();
-        ui->studentTable->setCellWidget(i, 3, signInCheckBox);
-        QPushButton* editButton = new QPushButton();
-        connect(editButton, SIGNAL(released()), this, SLOT(editStudent()));
-        ui->studentTable->setCellWidget(i, 4, editButton);
     }
     ui->studentTable->setSortingEnabled(true);
 }
@@ -98,8 +99,6 @@ void MainWindow::update(int period)
             ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
             ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
             ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
-            QCheckBox* signInCheckBox = new QCheckBox();
-            ui->studentTable->setCellWidget(currentIndex, 3, signInCheckBox);
             currentIndex++;
         }
     }

@@ -24,14 +24,15 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
+    void editStudent();
     void update();
     ~MainWindow();
 
 private slots:
     void newStudent();
-    void editStudent();
     void importStudents();
     void update(int);
+    void handleDoubleClick(int, int);
 
 private:
     Ui::MainWindow *ui;
