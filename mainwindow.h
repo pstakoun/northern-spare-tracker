@@ -32,7 +32,7 @@ private slots:
     void newStudent();
     void importStudents();
     void update(int);
-    void search(QString);
+    void handleSearch(QString);
 
 private:
     Ui::MainWindow *ui;
@@ -40,7 +40,9 @@ private:
     StudentWindow *studentWindow;
     ImportWindow *importWindow;
     static std::vector<Student*> students;
+    QString searchQuery;
     void editStudent(Student*);
+    bool matchesQuery(Student*);
 };
 
 #endif // MAINWINDOW_H

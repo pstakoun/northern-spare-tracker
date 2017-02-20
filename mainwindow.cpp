@@ -20,7 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
-    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(search(QString)));
+    connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(handleSearch(QString)));
     setStudents(studentIO.readStudents());
 }
 
@@ -70,43 +70,34 @@ void MainWindow::addStudent(Student *s)
     update();
 }
 
+bool MainWindow::matchesQuery(Student *s)
+{
+    if (s->getId().startsWith(searchQuery) || s->getFName().startsWith(searchQuery, Qt::CaseInsensitive) || s->getLName().startsWith(searchQuery, Qt::CaseInsensitive)) {
+        return true;
+    }
+    return false;
+}
+
 void MainWindow::update()
 {
     if (ui->periodComboBox->currentIndex() != 0) {
         update(ui->periodComboBox->currentIndex());
         return;
     }
-    ui->studentTable->setSortingEnabled(false);
-    ui->studentTable->setRowCount(students.size());
-    for (int i = 0; i < students.size(); i++) {
-        ui->studentTable->setItem(i, 0, new QTableWidgetItem(students[i]->getId()));
-        ui->studentTable->setItem(i, 1, new QTableWidgetItem(students[i]->getFName()));
-        ui->studentTable->setItem(i, 2, new QTableWidgetItem(students[i]->getLName()));
-    }
-    ui->studentTable->setSortingEnabled(true);
-}
 
-void MainWindow::update(int period)
-{
     ui->studentTable->setSortingEnabled(false);
     ui->studentTable->setRowCount(0);
 
-    if (period == 0) {
-        update();
-        return;
-    }
-    period -= 1;
-
     int numStudents = 0;
     for (int i = 0; i < students.size(); i++) {
-        if (students[i]->hasSpare(period)) {
+        if (matchesQuery(students[i])) {
             numStudents++;
         }
     }
 
     ui->studentTable->setRowCount(numStudents);
     for (int i = 0, currentIndex = 0; currentIndex < numStudents; i++) {
-        if (students[i]->hasSpare(period)) {
+        if (matchesQuery(students[i])) {
             ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
             ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
             ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
@@ -116,9 +107,40 @@ void MainWindow::update(int period)
     ui->studentTable->setSortingEnabled(true);
 }
 
-void MainWindow::search(QString query)
+void MainWindow::update(int period)
 {
+    if (period == 0) {
+        update();
+        return;
+    }
+    period -= 1;
 
+    ui->studentTable->setSortingEnabled(false);
+    ui->studentTable->setRowCount(0);
+
+    int numStudents = 0;
+    for (int i = 0; i < students.size(); i++) {
+        if (students[i]->hasSpare(period) && matchesQuery(students[i])) {
+            numStudents++;
+        }
+    }
+
+    ui->studentTable->setRowCount(numStudents);
+    for (int i = 0, currentIndex = 0; currentIndex < numStudents; i++) {
+        if (students[i]->hasSpare(period) && matchesQuery(students[i])) {
+            ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
+            ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
+            ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
+            currentIndex++;
+        }
+    }
+    ui->studentTable->setSortingEnabled(true);
+}
+
+void MainWindow::handleSearch(QString query)
+{
+    searchQuery = query;
+    update();
 }
 
 MainWindow::~MainWindow()
