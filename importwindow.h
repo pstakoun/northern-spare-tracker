@@ -24,6 +24,9 @@ protected:
     void dropEvent(QDropEvent *ev);
     void dragEnterEvent(QDragEnterEvent *ev);
 
+private slots:
+    void done();
+
 private:
     Ui::ImportWindow *ui;
     MainWindow *mainWindow;

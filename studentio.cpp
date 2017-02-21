@@ -89,7 +89,17 @@ std::vector<Student*> StudentIO::readStudents()
 
 void StudentIO::uploadSpares(int day, QUrl url)
 {
-    // TODO
+    if (!QDir("data").exists()) {
+        QDir().mkdir("data");
+    }
+
+    QString path = QString::fromStdString("data/day"+std::to_string(day)+".csv");
+
+    if (QFile::exists(path)) {
+        QFile::remove(path);
+    }
+
+    QFile::copy(url.toLocalFile(), path);
 }
 
 void StudentIO::uploadPictures(QUrl url)

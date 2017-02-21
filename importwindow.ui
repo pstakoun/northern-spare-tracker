@@ -17,8 +17,15 @@
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
      <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <spacer name="horizontalSpacer">
+      <item row="1" column="1" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Drag and Drop to Import</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <spacer name="horizontalSpacer_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -57,8 +64,8 @@
         </item>
        </widget>
       </item>
-      <item row="0" column="3">
-       <spacer name="horizontalSpacer_2">
+      <item row="0" column="0">
+       <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -73,10 +80,10 @@
         </property>
        </spacer>
       </item>
-      <item row="1" column="1" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QLabel" name="label">
+      <item row="2" column="1" colspan="2" alignment="Qt::AlignHCenter">
+       <widget class="QPushButton" name="doneButton">
         <property name="text">
-         <string>Drag and Drop to Import</string>
+         <string>Done</string>
         </property>
        </widget>
       </item>

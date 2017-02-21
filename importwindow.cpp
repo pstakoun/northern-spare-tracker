@@ -7,6 +7,7 @@ ImportWindow::ImportWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setAcceptDrops(true);
+    connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(done()));
 }
 
 void ImportWindow::dropEvent(QDropEvent *ev)
@@ -19,7 +20,7 @@ void ImportWindow::dropEvent(QDropEvent *ev)
                 studentIO.uploadSpares(1, url);
                 break;
             case 2:
-                studentIO.uploadSpares(1, url);
+                studentIO.uploadSpares(2, url);
                 break;
             case 3:
                 studentIO.uploadPictures(url);
@@ -30,6 +31,13 @@ void ImportWindow::dropEvent(QDropEvent *ev)
 void ImportWindow::dragEnterEvent(QDragEnterEvent *ev)
 {
     ev->accept();
+}
+
+void ImportWindow::done()
+{
+    mainWindow = new MainWindow;
+    mainWindow->update();
+    setCentralWidget(mainWindow);
 }
 
 ImportWindow::~ImportWindow()

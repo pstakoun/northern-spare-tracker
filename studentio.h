@@ -8,6 +8,8 @@
 #include <sstream>
 #include <QCoreApplication>
 #include <QUrl>
+#include <QDir>
+#include <QFile>
 #include "student.h"
 
 class StudentIO
