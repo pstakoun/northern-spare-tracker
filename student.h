@@ -18,6 +18,9 @@ public:
     void addSpare(int);
     void removeSpare(int);
     bool hasSpare(int);
+    void signIn(int);
+    void signOut(int);
+    bool signedIn(int);
 
 private:
     QString id;
@@ -25,6 +28,7 @@ private:
     QString lName;
     QUrl picture;
     bool isSpare[NUM_PERIODS * NUM_DAYS];
+    bool isSignedIn[NUM_PERIODS * NUM_DAYS];
 };
 
 #endif // STUDENT_H

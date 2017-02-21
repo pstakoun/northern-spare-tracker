@@ -26,16 +26,28 @@ MainWindow::MainWindow(QWidget *parent) :
 
 void MainWindow::handleDoubleClick(int row, int col)
 {
-    if (col == ui->studentTable->columnCount() - 1) {
-        // TODO sign in
-    } else {
-        QString id = ui->studentTable->item(row, 0)->text();
-        for (int i = 0; i < students.size(); i++) {
-            if (id == students[i]->getId()) {
-                editStudent(students[i]);
-                break;
-            }
+    QString id = ui->studentTable->item(row, 0)->text();
+    Student *s;
+    for (int i = 0; i < students.size(); i++) {
+        if (id == students[i]->getId()) {
+            s = students[i];
+            break;
         }
+    }
+
+    int period = ui->periodComboBox->currentIndex() - 1;
+    if (col == ui->studentTable->columnCount() - 1) {
+        if (period == -1) {
+            return;
+        }
+
+        if (s->signedIn(period)) {
+            s->signOut(period);
+        } else {
+            s->signIn(period);
+        }
+    } else {
+        editStudent(s);
     }
 }
 

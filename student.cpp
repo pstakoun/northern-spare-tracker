@@ -45,3 +45,18 @@ bool Student::hasSpare(int i)
 {
     return isSpare[i];
 }
+
+void Student::signIn(int i)
+{
+    isSignedIn[i] = true;
+}
+
+void Student::signOut(int i)
+{
+    isSignedIn[i] = false;
+}
+
+bool Student::signedIn(int i)
+{
+    return isSignedIn[i];
+}
