@@ -145,6 +145,9 @@ void MainWindow::update(int period)
             ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
             ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
             ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
+            if (students[i]->signedIn(period)) {
+                ui->studentTable->setItem(currentIndex, 3, new QTableWidgetItem("Signed In"));
+            }
             currentIndex++;
         }
     }

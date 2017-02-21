@@ -9,6 +9,9 @@ Student::Student(QString a, QString b, QString c, QUrl d)
     for (int i = 0; i < sizeof(isSpare); i++) {
         isSpare[i] = false;
     }
+    for (int i = 0; i < sizeof(isSignedIn); i++) {
+        isSignedIn[i] = false;
+    }
 }
 
 QString Student::getId()
