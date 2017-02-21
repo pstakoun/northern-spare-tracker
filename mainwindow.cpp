@@ -43,8 +43,10 @@ void MainWindow::handleDoubleClick(int row, int col)
 
         if (s->signedIn(period)) {
             s->signOut(period);
+            ui->studentTable->setItem(row, col, new QTableWidgetItem(""));
         } else {
             s->signIn(period);
+            ui->studentTable->setItem(row, col, new QTableWidgetItem("Signed In"));
         }
     } else {
         editStudent(s);
