@@ -106,3 +106,15 @@ void StudentIO::uploadPictures(QUrl url)
 {
     // TODO
 }
+
+void StudentIO::logSignIn(Student *s)
+{
+    if (!QDir("data").exists()) {
+        QDir().mkdir("data");
+    }
+
+    QFile file("data/log.csv");
+    file.open(QIODevice::WriteOnly | QIODevice::Append);
+    QTextStream out(&file);
+    out << QDateTime::currentDateTime().toString() << "," << s->getId() << "\n";
+}

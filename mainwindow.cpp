@@ -46,6 +46,7 @@ void MainWindow::handleDoubleClick(int row, int col)
             ui->studentTable->setItem(row, col, new QTableWidgetItem(""));
         } else {
             s->signIn(period);
+            studentIO.logSignIn(s);
             ui->studentTable->setItem(row, col, new QTableWidgetItem("Signed In"));
         }
     } else {

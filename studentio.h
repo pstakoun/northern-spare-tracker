@@ -10,6 +10,8 @@
 #include <QUrl>
 #include <QDir>
 #include <QFile>
+#include <QTextStream>
+#include <QDateTime>
 #include "student.h"
 
 class StudentIO
@@ -19,6 +21,7 @@ public:
     std::vector<Student*> readStudents();
     void uploadSpares(int, QUrl);
     void uploadPictures(QUrl);
+    void logSignIn(Student*);
 };
 
 #endif // STUDENTIO_H
