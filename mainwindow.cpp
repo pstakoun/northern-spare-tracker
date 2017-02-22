@@ -35,11 +35,8 @@ void MainWindow::handleDoubleClick(int row, int col)
         }
     }
 
-    int period = ui->periodComboBox->currentIndex() - 1;
     if (col == ui->studentTable->columnCount() - 1) {
-        if (period == -1) {
-            return;
-        }
+        int period = ui->periodComboBox->currentIndex();
 
         if (s->signedIn(period)) {
             s->signOut(period);
@@ -95,41 +92,11 @@ bool MainWindow::matchesQuery(Student *s)
 
 void MainWindow::update()
 {
-    if (ui->periodComboBox->currentIndex() != 0) {
-        update(ui->periodComboBox->currentIndex());
-        return;
-    }
-
-    ui->studentTable->setSortingEnabled(false);
-    ui->studentTable->setRowCount(0);
-
-    int numStudents = 0;
-    for (int i = 0; i < students.size(); i++) {
-        if (matchesQuery(students[i])) {
-            numStudents++;
-        }
-    }
-
-    ui->studentTable->setRowCount(numStudents);
-    for (int i = 0, currentIndex = 0; currentIndex < numStudents; i++) {
-        if (matchesQuery(students[i])) {
-            ui->studentTable->setItem(currentIndex, 0, new QTableWidgetItem(students[i]->getId()));
-            ui->studentTable->setItem(currentIndex, 1, new QTableWidgetItem(students[i]->getFName()));
-            ui->studentTable->setItem(currentIndex, 2, new QTableWidgetItem(students[i]->getLName()));
-            currentIndex++;
-        }
-    }
-    ui->studentTable->setSortingEnabled(true);
+    update(ui->periodComboBox->currentIndex());
 }
 
 void MainWindow::update(int period)
 {
-    if (period == 0) {
-        update();
-        return;
-    }
-    period -= 1;
-
     ui->studentTable->setSortingEnabled(false);
     ui->studentTable->setRowCount(0);
 
