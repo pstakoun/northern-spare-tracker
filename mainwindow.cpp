@@ -16,12 +16,32 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
+    connect(ui->studentTable, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(handleCellChanged(int, int, int, int)));
     connect(ui->studentTable, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(handleDoubleClick(int, int)));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
     connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(handleSearch(QString)));
     setStudents(studentIO.readStudents());
+}
+
+void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
+{
+    if (row == -1 || col == -1) {
+        ui->picture->setPixmap(QPixmap());
+        return;
+    }
+
+    QString id = ui->studentTable->item(row, 0)->text();
+    Student *s;
+    for (int i = 0; i < students.size(); i++) {
+        if (id == students[i]->getId()) {
+            s = students[i];
+            break;
+        }
+    }
+
+    ui->picture->setPixmap(QPixmap(s->getPicture().toLocalFile()));
 }
 
 void MainWindow::handleDoubleClick(int row, int col)

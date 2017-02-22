@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>768</width>
+    <height>432</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,13 +20,14 @@
       <property name="sizeConstraint">
        <enum>QLayout::SetDefaultConstraint</enum>
       </property>
-      <item row="1" column="0" colspan="3">
-       <widget class="QLineEdit" name="search"/>
+      <item row="0" column="0" colspan="5" alignment="Qt::AlignHCenter">
+       <widget class="QLabel" name="title">
+        <property name="text">
+         <string>Find Student</string>
+        </property>
+       </widget>
       </item>
-      <item row="2" column="0" colspan="4">
-       <widget class="QTableWidget" name="studentTable"/>
-      </item>
-      <item row="1" column="3" alignment="Qt::AlignRight">
+      <item row="1" column="4">
        <widget class="QComboBox" name="periodComboBox">
         <property name="currentText">
          <string>A (Day 1 Period 1)</string>
@@ -73,26 +74,55 @@
         </item>
        </widget>
       </item>
-      <item row="0" column="0" colspan="4" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QLabel" name="title">
+      <item row="2" column="4">
+       <widget class="QLabel" name="picture">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="text">
-         <string>Find Student</string>
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+        <property name="margin">
+         <number>0</number>
         </property>
        </widget>
       </item>
-      <item row="3" column="2" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QPushButton" name="addStudentButton">
-        <property name="text">
-         <string>Add Student</string>
+      <item row="1" column="0" colspan="4">
+       <widget class="QLineEdit" name="search"/>
+      </item>
+      <item row="2" column="0" colspan="4">
+       <widget class="QTableWidget" name="studentTable">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
         </property>
        </widget>
       </item>
-      <item row="3" column="0" colspan="2" alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-       <widget class="QPushButton" name="importStudentsButton">
-        <property name="text">
-         <string>Import Students</string>
-        </property>
-       </widget>
+      <item row="3" column="0" colspan="5">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QPushButton" name="importStudentsButton">
+          <property name="text">
+           <string>Import Students</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QPushButton" name="addStudentButton">
+          <property name="text">
+           <string>Add Student</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
      </layout>
     </item>

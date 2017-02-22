@@ -28,6 +28,7 @@ public:
     ~MainWindow();
 
 private slots:
+    void handleCellChanged(int, int, int, int);
     void handleDoubleClick(int, int);
     void newStudent();
     void importStudents();
