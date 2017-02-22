@@ -18,7 +18,6 @@ public:
     MainWindow *mainWindow;
     ~StudentWindow();
     void setStudent(Student*);
-    void loadPicture();
 
 private slots:
     void cancel();

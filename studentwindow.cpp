@@ -22,13 +22,6 @@ void StudentWindow::setStudent(Student *s)
             spares[i]->setChecked(true);
         }
     }
-    loadPicture();
-}
-
-void StudentWindow::loadPicture()
-{
-    QPixmap p(student->getPicture().toLocalFile());
-    ui->picture->setPixmap(p);
 }
 
 void StudentWindow::cancel()
