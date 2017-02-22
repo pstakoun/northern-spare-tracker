@@ -20,7 +20,7 @@ public:
     StudentIO();
     std::vector<Student*> readStudents();
     void uploadSpares(int, QUrl);
-    void uploadPictures(QUrl);
+    void uploadPicture(QUrl);
     void logSignIn(Student*);
 };
 

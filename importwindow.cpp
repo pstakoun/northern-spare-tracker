@@ -12,6 +12,7 @@ ImportWindow::ImportWindow(QWidget *parent) :
 
 void ImportWindow::dropEvent(QDropEvent *ev)
 {
+    ui->label->setText("Importing...");
     QList<QUrl> urls = ev->mimeData()->urls();
     foreach(QUrl url, urls)
     {
@@ -23,13 +24,15 @@ void ImportWindow::dropEvent(QDropEvent *ev)
                 studentIO.uploadSpares(2, url);
                 break;
             case 3:
-                studentIO.uploadPictures(url);
+                studentIO.uploadPicture(url);
         }
     }
+    ui->label->setText("Done");
 }
 
 void ImportWindow::dragEnterEvent(QDragEnterEvent *ev)
 {
+    ui->label->setText("Drop to Import");
     ev->accept();
 }
 

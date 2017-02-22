@@ -102,9 +102,19 @@ void StudentIO::uploadSpares(int day, QUrl url)
     QFile::copy(url.toLocalFile(), path);
 }
 
-void StudentIO::uploadPictures(QUrl url)
+void StudentIO::uploadPicture(QUrl url)
 {
-    // TODO
+    if (!QDir("data/pictures").exists()) {
+        QDir().mkdir("data/pictures");
+    }
+
+    QString path = "data/pictures/"+url.fileName();
+
+    if (QFile::exists(path)) {
+        QFile::remove(path);
+    }
+
+    QFile::copy(url.toLocalFile(), path);
 }
 
 void StudentIO::logSignIn(Student *s)
