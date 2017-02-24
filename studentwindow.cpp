@@ -30,21 +30,18 @@ void StudentWindow::setStudent(Student *s)
 void StudentWindow::cancel()
 {
     mainWindow = new MainWindow;
-    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 
 void StudentWindow::deleteStudent()
 {
     mainWindow = new MainWindow;
-    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 
 void StudentWindow::done()
 {
     mainWindow = new MainWindow;
-    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 

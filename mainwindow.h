@@ -22,9 +22,11 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    static int period;
+    static QString searchQuery;
+    static void init();
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
-    void update();
     ~MainWindow();
 
 private slots:
@@ -32,7 +34,8 @@ private slots:
     void handleDoubleClick(int, int);
     void newStudent();
     void importStudents();
-    void update(int);
+    void update();
+    void handlePeriodChanged(int);
     void handleSearch(QString);
 
 private:
@@ -40,8 +43,7 @@ private:
     StudentIO studentIO;
     StudentWindow *studentWindow;
     ImportWindow *importWindow;
-    static std::vector<Student*> students;
-    QString searchQuery;
+    std::vector<Student*> students;
     void editStudent(Student*);
     bool matchesQuery(Student*);
 };

@@ -39,7 +39,6 @@ void ImportWindow::dragEnterEvent(QDragEnterEvent *ev)
 void ImportWindow::done()
 {
     mainWindow = new MainWindow;
-    mainWindow->update();
     setCentralWidget(mainWindow);
 }
 

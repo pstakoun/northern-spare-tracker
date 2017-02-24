@@ -1,7 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-std::vector<Student*> MainWindow::students;
+int MainWindow::period;
+QString MainWindow::searchQuery;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,13 +17,23 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->studentTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
     ui->studentTable->setSelectionMode(QAbstractItemView::NoSelection);
     ui->studentTable->setSortingEnabled(true);
+
     connect(ui->studentTable, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(handleCellChanged(int, int, int, int)));
     connect(ui->studentTable, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(handleDoubleClick(int, int)));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
-    connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(update(int)));
+    connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handlePeriodChanged(int)));
     connect(ui->search, SIGNAL(textChanged(QString)), this, SLOT(handleSearch(QString)));
+
+    ui->periodComboBox->setCurrentIndex(period);
+    ui->search->setText(searchQuery);
+
     setStudents(studentIO.readStudents());
+}
+
+void MainWindow::init() {
+    MainWindow::period = 0;
+    MainWindow::searchQuery = "";
 }
 
 void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
@@ -71,6 +82,18 @@ void MainWindow::handleDoubleClick(int row, int col)
     }
 }
 
+void MainWindow::handlePeriodChanged(int p)
+{
+    period = p;
+    update();
+}
+
+void MainWindow::handleSearch(QString query)
+{
+    searchQuery = query;
+    update();
+}
+
 void MainWindow::newStudent()
 {
    studentWindow = new StudentWindow;
@@ -112,11 +135,6 @@ bool MainWindow::matchesQuery(Student *s)
 
 void MainWindow::update()
 {
-    update(ui->periodComboBox->currentIndex());
-}
-
-void MainWindow::update(int period)
-{
     ui->studentTable->setSortingEnabled(false);
     ui->studentTable->setRowCount(0);
 
@@ -140,12 +158,6 @@ void MainWindow::update(int period)
         }
     }
     ui->studentTable->setSortingEnabled(true);
-}
-
-void MainWindow::handleSearch(QString query)
-{
-    searchQuery = query;
-    update();
 }
 
 MainWindow::~MainWindow()
