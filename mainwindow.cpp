@@ -3,6 +3,8 @@
 
 int MainWindow::period;
 QString MainWindow::searchQuery;
+int MainWindow::sortColumn;
+Qt::SortOrder MainWindow::sortOrder;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->studentTable, SIGNAL(currentCellChanged(int, int, int, int)), this, SLOT(handleCellChanged(int, int, int, int)));
     connect(ui->studentTable, SIGNAL(cellDoubleClicked(int, int)), this, SLOT(handleDoubleClick(int, int)));
+    connect(ui->studentTable->horizontalHeader(), SIGNAL(sortIndicatorChanged(int, Qt::SortOrder)), this, SLOT(handleSort(int, Qt::SortOrder)));
     connect(ui->addStudentButton, SIGNAL(clicked()), this, SLOT(newStudent()));
     connect(ui->importStudentsButton, SIGNAL(clicked()), this, SLOT(importStudents()));
     connect(ui->periodComboBox, SIGNAL(currentIndexChanged(int)), this, SLOT(handlePeriodChanged(int)));
@@ -27,6 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->periodComboBox->setCurrentIndex(period);
     ui->search->setText(searchQuery);
+    if (sortColumn != -1)
+        ui->studentTable->sortByColumn(sortColumn, sortOrder);
 
     setStudents(studentIO.readStudents());
 }
@@ -34,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::init() {
     MainWindow::period = 0;
     MainWindow::searchQuery = "";
+    MainWindow::sortColumn = -1;
 }
 
 void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
@@ -80,6 +86,12 @@ void MainWindow::handleDoubleClick(int row, int col)
     } else {
         editStudent(s);
     }
+}
+
+void MainWindow::handleSort(int column, Qt::SortOrder order)
+{
+    sortColumn = column;
+    sortOrder = order;
 }
 
 void MainWindow::handlePeriodChanged(int p)

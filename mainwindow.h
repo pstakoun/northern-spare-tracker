@@ -24,6 +24,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     static int period;
     static QString searchQuery;
+    static int sortColumn;
+    static Qt::SortOrder sortOrder;
     static void init();
     void setStudents(std::vector<Student*>);
     void addStudent(Student*);
@@ -32,6 +34,7 @@ public:
 private slots:
     void handleCellChanged(int, int, int, int);
     void handleDoubleClick(int, int);
+    void handleSort(int, Qt::SortOrder);
     void newStudent();
     void importStudents();
     void update();
