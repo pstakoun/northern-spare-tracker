@@ -128,6 +128,13 @@
          </widget>
         </item>
         <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+         <widget class="QPushButton" name="deleteButton">
+          <property name="text">
+           <string>Delete</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
          <widget class="QPushButton" name="doneButton">
           <property name="text">
            <string>Done</string>

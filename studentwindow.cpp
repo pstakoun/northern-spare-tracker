@@ -6,7 +6,9 @@ StudentWindow::StudentWindow(QWidget *parent) :
     ui(new Ui::StudentWindow)
 {
     ui->setupUi(this);
+    ui->deleteButton->hide();
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(cancel()));
+    connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteStudent()));
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(done()));
 }
 
@@ -22,9 +24,17 @@ void StudentWindow::setStudent(Student *s)
             spares[i]->setChecked(true);
         }
     }
+    ui->deleteButton->show();
 }
 
 void StudentWindow::cancel()
+{
+    mainWindow = new MainWindow;
+    mainWindow->update();
+    setCentralWidget(mainWindow);
+}
+
+void StudentWindow::deleteStudent()
 {
     mainWindow = new MainWindow;
     mainWindow->update();

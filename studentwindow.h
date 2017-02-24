@@ -21,6 +21,7 @@ public:
 
 private slots:
     void cancel();
+    void deleteStudent();
     void done();
 
 private:
