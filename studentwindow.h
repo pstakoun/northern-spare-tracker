@@ -22,6 +22,7 @@ public:
 private:
     Ui::StudentWindow *ui;
     Student *student;
+    void clearData();
 
 private slots:
     void updateData(QString);

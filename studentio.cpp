@@ -95,6 +95,7 @@ Student* StudentIO::getStudentById(QString id)
     for (int i = 0; i < students.size(); i++)
         if (id == students[i]->getId())
             return students[i];
+    return nullptr;
 }
 
 void StudentIO::uploadSpares(int day, QUrl url)
