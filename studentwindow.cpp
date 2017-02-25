@@ -7,9 +7,30 @@ StudentWindow::StudentWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->deleteButton->hide();
+    connect(ui->id, SIGNAL(textChanged(QString)), this, SLOT(updateData(QString)));
     connect(ui->cancelButton, SIGNAL(clicked()), this, SLOT(cancel()));
     connect(ui->deleteButton, SIGNAL(clicked()), this, SLOT(deleteStudent()));
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(done()));
+}
+
+void StudentWindow::updateData(QString s)
+{
+    // TODO
+}
+
+void StudentWindow::cancel()
+{
+    setCentralWidget(new MainWindow);
+}
+
+void StudentWindow::deleteStudent()
+{
+    setCentralWidget(new MainWindow);
+}
+
+void StudentWindow::done()
+{
+    setCentralWidget(new MainWindow);
 }
 
 void StudentWindow::setStudent(Student *s)
@@ -25,24 +46,6 @@ void StudentWindow::setStudent(Student *s)
         }
     }
     ui->deleteButton->show();
-}
-
-void StudentWindow::cancel()
-{
-    mainWindow = new MainWindow;
-    setCentralWidget(mainWindow);
-}
-
-void StudentWindow::deleteStudent()
-{
-    mainWindow = new MainWindow;
-    setCentralWidget(mainWindow);
-}
-
-void StudentWindow::done()
-{
-    mainWindow = new MainWindow;
-    setCentralWidget(mainWindow);
 }
 
 StudentWindow::~StudentWindow()

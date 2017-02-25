@@ -19,14 +19,15 @@ public:
     ~StudentWindow();
     void setStudent(Student*);
 
-private slots:
-    void cancel();
-    void deleteStudent();
-    void done();
-
 private:
     Ui::StudentWindow *ui;
     Student *student;
+
+private slots:
+    void updateData(QString);
+    void cancel();
+    void deleteStudent();
+    void done();
 };
 
 #endif // STUDENTWINDOW_H

@@ -11,12 +11,12 @@ static inline std::string &rtrim(std::string &s) {
     return s;
 }
 
-std::vector<Student*> StudentIO::readStudents()
+void StudentIO::readStudents()
 {
+    students.clear();
+
     std::string paths[] = {QCoreApplication::applicationDirPath().toStdString() + "/data/day1.csv",
                            QCoreApplication::applicationDirPath().toStdString() + "/data/day2.csv"};
-
-    std::vector<Student*> students;
 
     for (int i = 0; i < sizeof(paths); i++) {
         std::string path = paths[i];
@@ -25,7 +25,7 @@ std::vector<Student*> StudentIO::readStudents()
         fileIn.open(path);
 
         if (!fileIn.is_open())
-            return students;
+            return;
 
         std::string line;
 
@@ -51,7 +51,7 @@ std::vector<Student*> StudentIO::readStudents()
         }
 
         if (idIndex == -1 || fnameIndex == -1 || lnameIndex == -1 || periodIndex == -1)
-            return students;
+            return;
 
         std::vector<std::string> args;
         while (std::getline(fileIn, line)) {
@@ -83,7 +83,10 @@ std::vector<Student*> StudentIO::readStudents()
             args.clear();
         }
     }
+}
 
+std::vector<Student*> StudentIO::getStudents()
+{
     return students;
 }
 

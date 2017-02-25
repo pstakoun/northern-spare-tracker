@@ -16,12 +16,17 @@
 
 class StudentIO
 {
+
 public:
     StudentIO();
-    std::vector<Student*> readStudents();
+    void readStudents();
+    std::vector<Student*> getStudents();
     void uploadSpares(int, QUrl);
     void uploadPicture(QUrl);
     void logSignIn(Student*);
+
+private:
+    std::vector<Student*> students;
 };
 
 #endif // STUDENTIO_H

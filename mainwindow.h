@@ -26,29 +26,24 @@ public:
     static QString searchQuery;
     static int sortColumn;
     static Qt::SortOrder sortOrder;
+    static StudentIO studentIO;
     static void init();
-    void setStudents(std::vector<Student*>);
-    void addStudent(Student*);
     ~MainWindow();
+
+private:
+    Ui::MainWindow *ui;
+    void editStudent(Student*);
+    bool matchesQuery(Student*);
 
 private slots:
     void handleCellChanged(int, int, int, int);
     void handleDoubleClick(int, int);
     void handleSort(int, Qt::SortOrder);
-    void newStudent();
-    void importStudents();
-    void update();
     void handlePeriodChanged(int);
     void handleSearch(QString);
-
-private:
-    Ui::MainWindow *ui;
-    StudentIO studentIO;
-    StudentWindow *studentWindow;
-    ImportWindow *importWindow;
-    std::vector<Student*> students;
-    void editStudent(Student*);
-    bool matchesQuery(Student*);
+    void importStudents();
+    void newStudent();
+    void update();
 };
 
 #endif // MAINWINDOW_H

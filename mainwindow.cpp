@@ -5,6 +5,7 @@ int MainWindow::period;
 QString MainWindow::searchQuery;
 int MainWindow::sortColumn;
 Qt::SortOrder MainWindow::sortOrder;
+StudentIO MainWindow::studentIO;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,13 +34,15 @@ MainWindow::MainWindow(QWidget *parent) :
     if (sortColumn != -1)
         ui->studentTable->sortByColumn(sortColumn, sortOrder);
 
-    setStudents(studentIO.readStudents());
+    studentIO.readStudents();
+    update();
 }
 
 void MainWindow::init() {
     MainWindow::period = 0;
     MainWindow::searchQuery = "";
     MainWindow::sortColumn = -1;
+    MainWindow::studentIO = StudentIO();
 }
 
 void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
@@ -50,6 +53,7 @@ void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
     }
 
     QString id = ui->studentTable->item(row, 0)->text();
+    std::vector<Student*> students = studentIO.getStudents();
     Student *s;
     for (int i = 0; i < students.size(); i++) {
         if (id == students[i]->getId()) {
@@ -64,6 +68,7 @@ void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
 void MainWindow::handleDoubleClick(int row, int col)
 {
     QString id = ui->studentTable->item(row, 0)->text();
+    std::vector<Student*> students = studentIO.getStudents();
     Student *s;
     for (int i = 0; i < students.size(); i++) {
         if (id == students[i]->getId()) {
@@ -106,43 +111,33 @@ void MainWindow::handleSearch(QString query)
     update();
 }
 
-void MainWindow::newStudent()
-{
-   studentWindow = new StudentWindow;
-   setCentralWidget(studentWindow);
-}
-
 void MainWindow::importStudents()
 {
-   importWindow = new ImportWindow;
-   setCentralWidget(importWindow);
+   setCentralWidget(new ImportWindow);
+}
+
+void MainWindow::newStudent()
+{
+   setCentralWidget(new StudentWindow);
 }
 
 void MainWindow::editStudent(Student *s)
 {
-   studentWindow = new StudentWindow;
+   StudentWindow *studentWindow = new StudentWindow;
    studentWindow->setStudent(s);
    setCentralWidget(studentWindow);
 }
 
-void MainWindow::setStudents(std::vector<Student*> s)
-{
-    students = s;
-    update();
-}
-
-void MainWindow::addStudent(Student *s)
-{
-    students.push_back(s);
-    update();
-}
-
 bool MainWindow::matchesQuery(Student *s)
 {
-    if (s->getId().startsWith(searchQuery) || s->getFName().startsWith(searchQuery, Qt::CaseInsensitive) || s->getLName().startsWith(searchQuery, Qt::CaseInsensitive)) {
-        return true;
+    QStringList searchArr = searchQuery.split(QRegExp("\\s+"), QString::SkipEmptyParts);
+    if (searchArr.size() == 0) return true;
+    for (QString str : searchQuery.split(QRegExp("\\s+"), QString::SkipEmptyParts)) {
+        if (!(s->getId().startsWith(str) || s->getFName().startsWith(str, Qt::CaseInsensitive) || s->getLName().startsWith(str, Qt::CaseInsensitive))) {
+            return false;
+        }
     }
-    return false;
+    return true;
 }
 
 void MainWindow::update()
@@ -150,6 +145,7 @@ void MainWindow::update()
     ui->studentTable->setSortingEnabled(false);
     ui->studentTable->setRowCount(0);
 
+    std::vector<Student*> students = studentIO.getStudents();
     int numStudents = 0;
     for (int i = 0; i < students.size(); i++) {
         if (students[i]->hasSpare(period) && matchesQuery(students[i])) {
