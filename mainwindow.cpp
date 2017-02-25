@@ -53,14 +53,7 @@ void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
     }
 
     QString id = ui->studentTable->item(row, 0)->text();
-    std::vector<Student*> students = studentIO.getStudents();
-    Student *s;
-    for (int i = 0; i < students.size(); i++) {
-        if (id == students[i]->getId()) {
-            s = students[i];
-            break;
-        }
-    }
+    Student *s = studentIO.getStudentById(id);
 
     ui->picture->setPixmap(QPixmap(s->getPicture().toLocalFile()));
 }
@@ -68,14 +61,7 @@ void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
 void MainWindow::handleDoubleClick(int row, int col)
 {
     QString id = ui->studentTable->item(row, 0)->text();
-    std::vector<Student*> students = studentIO.getStudents();
-    Student *s;
-    for (int i = 0; i < students.size(); i++) {
-        if (id == students[i]->getId()) {
-            s = students[i];
-            break;
-        }
-    }
+    Student *s = studentIO.getStudentById(id);
 
     if (col == ui->studentTable->columnCount() - 1) {
         int period = ui->periodComboBox->currentIndex();

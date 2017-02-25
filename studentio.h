@@ -21,6 +21,7 @@ public:
     StudentIO();
     void readStudents();
     std::vector<Student*> getStudents();
+    Student* getStudentById(QString);
     void uploadSpares(int, QUrl);
     void uploadPicture(QUrl);
     void logSignIn(Student*);
