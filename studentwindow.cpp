@@ -55,12 +55,23 @@ void StudentWindow::cancel()
 
 void StudentWindow::deleteStudent()
 {
-    setCentralWidget(new MainWindow);
+    bool spares[] = new bool[8];
+    for (int i = 0; i < 8; i++) {
+        spares[i] = false;
+    }
+    MainWindow::studentIO.updateStudent(ui->id->text(), spares);
+    cancel();
 }
 
 void StudentWindow::done()
 {
-    setCentralWidget(new MainWindow);
+    QCheckBox* checkBoxes[] = {ui->checkBoxA, ui->checkBoxB, ui->checkBoxC, ui->checkBoxD, ui->checkBoxE, ui->checkBoxF, ui->checkBoxG, ui->checkBoxH};
+    bool spares[] = new bool[8];
+    for (int i = 0; i < 8; i++) {
+        spares[i] = checkBoxes[i]->isChecked();
+    }
+    MainWindow::studentIO.updateStudent(ui->id->text(), spares);
+    cancel();
 }
 
 StudentWindow::~StudentWindow()

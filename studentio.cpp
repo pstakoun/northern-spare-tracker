@@ -98,6 +98,18 @@ Student* StudentIO::getStudentById(QString id)
     return nullptr;
 }
 
+void StudentIO::updateStudent(QString id, bool newSpares[])
+{
+    Student *s = getStudentById(id);
+    for (int i = 0; i < sizeof(newSpares); i++) {
+        if (s->hasSpare(i) && !newSpares[i]) {
+            // TODO remove spare
+        } else if (!s->hasSpare(i) && newSpares[i]) {
+            // TODO add spare
+        }
+    }
+}
+
 void StudentIO::uploadSpares(int day, QUrl url)
 {
     if (!QDir("data").exists()) {
