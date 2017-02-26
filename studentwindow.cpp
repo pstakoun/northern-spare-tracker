@@ -55,22 +55,26 @@ void StudentWindow::cancel()
 
 void StudentWindow::deleteStudent()
 {
-    bool spares[] = new bool[8];
+    bool *spares = new bool[8];
     for (int i = 0; i < 8; i++) {
         spares[i] = false;
     }
-    MainWindow::studentIO.updateStudent(ui->id->text(), spares);
+    MainWindow::studentIO.removeSpares(ui->id->text(), spares);
     cancel();
 }
 
 void StudentWindow::done()
 {
     QCheckBox* checkBoxes[] = {ui->checkBoxA, ui->checkBoxB, ui->checkBoxC, ui->checkBoxD, ui->checkBoxE, ui->checkBoxF, ui->checkBoxG, ui->checkBoxH};
-    bool spares[] = new bool[8];
+    bool *spares = new bool[8];
     for (int i = 0; i < 8; i++) {
         spares[i] = checkBoxes[i]->isChecked();
     }
-    MainWindow::studentIO.updateStudent(ui->id->text(), spares);
+    Student *student = MainWindow::studentIO.getStudentById(ui->id->text());
+    if (student == nullptr)
+        student = new Student(ui->id->text(), ui->fname->text(), ui->lname->text(), QUrl::fromLocalFile(QString::fromStdString(QCoreApplication::applicationDirPath().toStdString() + "/data/pictures/" + ui->id->text().toStdString() + ".BMP")));
+
+    MainWindow::studentIO.updateSpares(student, spares);
     cancel();
 }
 

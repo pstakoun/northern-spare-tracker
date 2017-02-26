@@ -31,8 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->periodComboBox->setCurrentIndex(period);
     ui->search->setText(searchQuery);
-    if (sortColumn != -1)
-        ui->studentTable->sortByColumn(sortColumn, sortOrder);
+    ui->studentTable->sortByColumn(sortColumn, sortOrder);
 
     studentIO.readStudents();
     update();
@@ -41,7 +40,8 @@ MainWindow::MainWindow(QWidget *parent) :
 void MainWindow::init() {
     MainWindow::period = 0;
     MainWindow::searchQuery = "";
-    MainWindow::sortColumn = -1;
+    MainWindow::sortColumn = 0;
+    MainWindow::sortOrder = Qt::AscendingOrder;
     MainWindow::studentIO = StudentIO();
 }
 

@@ -20,9 +20,11 @@ class StudentIO
 public:
     StudentIO();
     void readStudents();
+    void writeStudents();
     std::vector<Student*> getStudents();
     Student* getStudentById(QString);
-    void updateStudent(QString, bool[]);
+    void removeSpares(QString, bool*);
+    void updateSpares(Student*, bool*);
     void uploadSpares(int, QUrl);
     void uploadPicture(QUrl);
     void logSignIn(Student*);
