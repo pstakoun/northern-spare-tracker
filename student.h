@@ -15,6 +15,8 @@ public:
     QString getFName();
     QString getLName();
     QUrl getPicture();
+    void setFName(QString);
+    void setLName(QString);
     void addSpare(int);
     void removeSpare(int);
     bool hasSpare(int);

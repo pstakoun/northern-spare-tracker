@@ -34,6 +34,16 @@ QUrl Student::getPicture()
     return picture;
 }
 
+void Student::setFName(QString s)
+{
+    fName = s;
+}
+
+void Student::setLName(QString s)
+{
+    lName = s;
+}
+
 void Student::addSpare(int i)
 {
     isSpare[i] = true;

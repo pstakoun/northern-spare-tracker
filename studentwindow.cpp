@@ -55,26 +55,30 @@ void StudentWindow::cancel()
 
 void StudentWindow::deleteStudent()
 {
-    bool *spares = new bool[8];
-    for (int i = 0; i < 8; i++) {
-        spares[i] = false;
-    }
-    MainWindow::studentIO.removeSpares(ui->id->text(), spares);
+    MainWindow::studentIO.removeStudentById(ui->id->text());
+    MainWindow::studentIO.writeStudents();
     cancel();
 }
 
 void StudentWindow::done()
 {
-    QCheckBox* checkBoxes[] = {ui->checkBoxA, ui->checkBoxB, ui->checkBoxC, ui->checkBoxD, ui->checkBoxE, ui->checkBoxF, ui->checkBoxG, ui->checkBoxH};
-    bool *spares = new bool[8];
-    for (int i = 0; i < 8; i++) {
-        spares[i] = checkBoxes[i]->isChecked();
-    }
     Student *student = MainWindow::studentIO.getStudentById(ui->id->text());
-    if (student == nullptr)
-        student = new Student(ui->id->text(), ui->fname->text(), ui->lname->text(), QUrl::fromLocalFile(QString::fromStdString(QCoreApplication::applicationDirPath().toStdString() + "/data/pictures/" + ui->id->text().toStdString() + ".BMP")));
 
-    MainWindow::studentIO.updateSpares(student, spares);
+    if (student == nullptr) {
+        student = new Student(ui->id->text(), ui->fname->text(), ui->lname->text(), QUrl::fromLocalFile(QString::fromStdString(QCoreApplication::applicationDirPath().toStdString() + "/data/pictures/" + ui->id->text().toStdString() + ".BMP")));
+        MainWindow::studentIO.addStudent(student);
+    } else {
+        student->setFName(ui->fname->text());
+        student->setLName(ui->lname->text());
+    }
+
+    QCheckBox* checkBoxes[] = {ui->checkBoxA, ui->checkBoxB, ui->checkBoxC, ui->checkBoxD, ui->checkBoxE, ui->checkBoxF, ui->checkBoxG, ui->checkBoxH};
+    for (int i = 0; i < 8; i++) {
+        if (checkBoxes[i]->isChecked()) student->addSpare(i);
+        else student->removeSpare(i);
+    }
+
+    MainWindow::studentIO.writeStudents();
     cancel();
 }
 

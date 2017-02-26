@@ -23,8 +23,8 @@ public:
     void writeStudents();
     std::vector<Student*> getStudents();
     Student* getStudentById(QString);
-    void removeSpares(QString, bool*);
-    void updateSpares(Student*, bool*);
+    void removeStudentById(QString);
+    void addStudent(Student*);
     void uploadSpares(int, QUrl);
     void uploadPicture(QUrl);
     void logSignIn(Student*);

@@ -101,28 +101,20 @@ Student* StudentIO::getStudentById(QString id)
     return nullptr;
 }
 
-void StudentIO::removeSpares(QString id, bool *newSpares)
+void StudentIO::removeStudentById(QString id)
 {
-    Student *student = getStudentById(id);
-    if (student == nullptr)
-        return;
-
-    for (int i = 0; i < sizeof(newSpares); i++) {
-        student->removeSpare(i);
+    for (int i = 0; i < students.size(); i++) {
+        if (id == students[i]->getId()) {
+            students.erase(students.begin()+i);
+            return;
+        }
     }
-    writeStudents();
 }
 
-void StudentIO::updateSpares(Student *student, bool *newSpares)
+void StudentIO::addStudent(Student *student)
 {
     if (getStudentById(student->getId()) == nullptr)
         students.push_back(student);
-
-    for (int i = 0; i < sizeof(newSpares); i++) {
-        if (newSpares[i]) student->addSpare(i);
-        else student->removeSpare(i);
-    }
-    writeStudents();
 }
 
 void StudentIO::uploadSpares(int day, QUrl url)
@@ -164,5 +156,5 @@ void StudentIO::logSignIn(Student *s)
     QFile file("data/log.csv");
     file.open(QIODevice::WriteOnly | QIODevice::Append);
     QTextStream out(&file);
-    out << QDateTime::currentDateTime().toString("YYYY/MM/DD HH:mm:ss") << "," << s->getId() << "," << s->getFName() << "," << s->getLName() << "\n";
+    out << QDateTime::currentDateTime().toString("yyyy-MM-dd HH:mm:ss") << "," << s->getId() << "," << s->getFName() << "," << s->getLName() << "\n";
 }
