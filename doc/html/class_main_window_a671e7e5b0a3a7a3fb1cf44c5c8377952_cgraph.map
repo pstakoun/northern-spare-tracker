@@ -1,0 +1,21 @@
+<map id="MainWindow::init" name="MainWindow::init">
+<area shape="rect" id="node2" href="$class_student_i_o.html#a513138a007310d8c123ba04ce1af8e4e" title="StudentIO::getStudentById" alt="" coords="661,651,840,678"/>
+<area shape="rect" id="node3" href="$class_student.html#a897fcf6f93b238dec7272f36397ab2d1" title="Student::getPicture" alt="" coords="201,43,336,70"/>
+<area shape="rect" id="node4" href="$class_student.html#af2f651f1533f158c0b95bddcb6c299fd" title="Student::signedIn" alt="" coords="207,94,331,120"/>
+<area shape="rect" id="node5" href="$class_student.html#a8124778da762c247391697e871b31983" title="Student::signOut" alt="" coords="209,144,329,171"/>
+<area shape="rect" id="node6" href="$class_student.html#a51f1de2461562ab241af8392a536d224" title="Student::signIn" alt="" coords="213,195,324,222"/>
+<area shape="rect" id="node7" href="$class_student_i_o.html#a1cab9c5c4ef79743bef16a6af0b3cbdb" title="Log Student sign in to file. " alt="" coords="197,296,340,323"/>
+<area shape="rect" id="node8" href="$class_student.html#ac314c299fce856ec970b3a358ca4ea86" title="Student::getId" alt="" coords="699,296,803,323"/>
+<area shape="rect" id="node9" href="$class_student.html#a6d4783d4c7ce33aa57e3cd27ac43ab91" title="Student::getFName" alt="" coords="443,195,579,222"/>
+<area shape="rect" id="node10" href="$class_student.html#a78345c7bbbb179675b332facbc45c11f" title="Student::getLName" alt="" coords="444,296,579,323"/>
+<area shape="rect" id="node11" href="$class_student_window.html#ad413a2d54e47846392e75383e5ff8774" title="Initialize GUI with Student data. " alt="" coords="176,499,361,526"/>
+<area shape="rect" id="node20" href="$class_student_i_o.html#aca2e602e9d842605e2b67e8a75200f10" title="StudentIO::getStudents" alt="" coords="189,904,348,931"/>
+<area shape="rect" id="node12" href="$class_student.html#a2c923389f39d4564829f5cf422cfef96" title="Student::hasSpare" alt="" coords="446,702,577,728"/>
+<area shape="rect" id="node13" href="$class_student_i_o.html#a051ee9ed55b11ade586200f4175a4225" title="StudentIO::removeStudentById" alt="" coords="409,752,613,779"/>
+<area shape="rect" id="node14" href="$class_student_i_o.html#ac1f03a74030b8324fb12a6cd33da2df3" title="Write Students from vector to data files. " alt="" coords="427,803,596,830"/>
+<area shape="rect" id="node15" href="$class_student_i_o.html#a5910dacfbf2593ff3cfddc242e3e114b" title="StudentIO::addStudent" alt="" coords="434,550,589,576"/>
+<area shape="rect" id="node16" href="$class_student.html#ac840a04f792b83ec859be96d4d049e04" title="Student::setFName" alt="" coords="443,398,579,424"/>
+<area shape="rect" id="node17" href="$class_student.html#abe86e9e7bc373a8ffa0a9654ded0fe28" title="Student::setLName" alt="" coords="444,448,579,475"/>
+<area shape="rect" id="node18" href="$class_student.html#a582d885b873be768e0e95e45d38d8f0e" title="Student::addSpare" alt="" coords="446,499,577,526"/>
+<area shape="rect" id="node19" href="$class_student.html#a59651e4e76bc19afca6e31cd91ba7aa0" title="Student::removeSpare" alt="" coords="435,600,587,627"/>
+</map>

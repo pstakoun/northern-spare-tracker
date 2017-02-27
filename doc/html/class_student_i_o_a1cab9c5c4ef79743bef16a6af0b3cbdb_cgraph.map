@@ -1,0 +1,5 @@
+<map id="StudentIO::logSignIn" name="StudentIO::logSignIn">
+<area shape="rect" id="node2" href="$class_student.html#ac314c299fce856ec970b3a358ca4ea86" title="Student::getId" alt="" coords="212,5,316,32"/>
+<area shape="rect" id="node3" href="$class_student.html#a6d4783d4c7ce33aa57e3cd27ac43ab91" title="Student::getFName" alt="" coords="196,56,332,83"/>
+<area shape="rect" id="node4" href="$class_student.html#a78345c7bbbb179675b332facbc45c11f" title="Student::getLName" alt="" coords="197,107,331,133"/>
+</map>

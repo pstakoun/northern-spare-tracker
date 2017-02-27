@@ -1,0 +1,14 @@
+<map id="StudentWindow::setStudent" name="StudentWindow::setStudent">
+<area shape="rect" id="node2" href="$class_student.html#ac314c299fce856ec970b3a358ca4ea86" title="Student::getId" alt="" coords="528,149,632,175"/>
+<area shape="rect" id="node3" href="$class_student.html#a6d4783d4c7ce33aa57e3cd27ac43ab91" title="Student::getFName" alt="" coords="273,47,409,74"/>
+<area shape="rect" id="node4" href="$class_student.html#a78345c7bbbb179675b332facbc45c11f" title="Student::getLName" alt="" coords="273,98,408,125"/>
+<area shape="rect" id="node5" href="$class_student.html#a2c923389f39d4564829f5cf422cfef96" title="Student::hasSpare" alt="" coords="275,149,406,175"/>
+<area shape="rect" id="node6" href="$class_student_i_o.html#a513138a007310d8c123ba04ce1af8e4e" title="StudentIO::getStudentById" alt="" coords="491,250,669,277"/>
+<area shape="rect" id="node7" href="$class_student_i_o.html#a051ee9ed55b11ade586200f4175a4225" title="StudentIO::removeStudentById" alt="" coords="239,250,443,277"/>
+<area shape="rect" id="node8" href="$class_student_i_o.html#ac1f03a74030b8324fb12a6cd33da2df3" title="Write Students from vector to data files. " alt="" coords="256,301,425,327"/>
+<area shape="rect" id="node9" href="$class_student_i_o.html#a5910dacfbf2593ff3cfddc242e3e114b" title="StudentIO::addStudent" alt="" coords="263,199,418,226"/>
+<area shape="rect" id="node10" href="$class_student.html#ac840a04f792b83ec859be96d4d049e04" title="Student::setFName" alt="" coords="273,402,409,429"/>
+<area shape="rect" id="node11" href="$class_student.html#abe86e9e7bc373a8ffa0a9654ded0fe28" title="Student::setLName" alt="" coords="273,453,408,479"/>
+<area shape="rect" id="node12" href="$class_student.html#a582d885b873be768e0e95e45d38d8f0e" title="Student::addSpare" alt="" coords="275,503,406,530"/>
+<area shape="rect" id="node13" href="$class_student.html#a59651e4e76bc19afca6e31cd91ba7aa0" title="Student::removeSpare" alt="" coords="265,554,417,581"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="StudentIO::removeStudentById" name="StudentIO::removeStudentById">
+<area shape="rect" id="node2" href="$class_student_window.html#ad413a2d54e47846392e75383e5ff8774" title="Initialize GUI with Student data. " alt="" coords="257,5,443,32"/>
+<area shape="rect" id="node3" href="$class_main_window.html#a671e7e5b0a3a7a3fb1cf44c5c8377952" title="Initialize static variables for persistance between MainWindow instances. " alt="" coords="491,5,613,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for Northern Spare Tracker. " alt="" coords="661,5,712,32"/>
+</map>

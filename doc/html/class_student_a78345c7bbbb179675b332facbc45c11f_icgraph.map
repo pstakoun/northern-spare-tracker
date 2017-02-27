@@ -1,0 +1,6 @@
+<map id="Student::getLName" name="Student::getLName">
+<area shape="rect" id="node2" href="$class_main_window.html#a671e7e5b0a3a7a3fb1cf44c5c8377952" title="Initialize static variables for persistance between MainWindow instances. " alt="" coords="421,24,544,51"/>
+<area shape="rect" id="node4" href="$class_student_i_o.html#a1cab9c5c4ef79743bef16a6af0b3cbdb" title="Log Student sign in to file. " alt="" coords="209,24,352,51"/>
+<area shape="rect" id="node5" href="$class_student_window.html#ad413a2d54e47846392e75383e5ff8774" title="Initialize GUI with Student data. " alt="" coords="188,75,373,102"/>
+<area shape="rect" id="node3" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title="Main entry point for Northern Spare Tracker. " alt="" coords="592,24,643,51"/>
+</map>

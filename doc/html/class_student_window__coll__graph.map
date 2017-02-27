@@ -1,0 +1,4 @@
+<map id="StudentWindow" name="StudentWindow">
+<area shape="rect" id="node3" href="$class_main_window.html" title="MainWindow" alt="" coords="97,95,194,121"/>
+<area shape="rect" id="node4" href="$class_student_i_o.html" title="StudentIO" alt="" coords="137,5,218,32"/>
+</map>
