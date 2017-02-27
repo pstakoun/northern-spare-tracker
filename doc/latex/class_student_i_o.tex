@@ -1,0 +1,231 @@
+\hypertarget{class_student_i_o}{}\section{Student\+IO Class Reference}
+\label{class_student_i_o}\index{Student\+IO@{Student\+IO}}
+
+
+{\ttfamily \#include $<$studentio.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_student_i_o_acdcab10501702f652cd46a641d8aa6ec}{read\+Students} ()
+\begin{DoxyCompactList}\small\item\em Read Students from data files to vector. \end{DoxyCompactList}\item 
+void \hyperlink{class_student_i_o_ac1f03a74030b8324fb12a6cd33da2df3}{write\+Students} ()
+\begin{DoxyCompactList}\small\item\em Write Students from vector to data files. \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{class_student}{Student} $\ast$ $>$ \hyperlink{class_student_i_o_aca2e602e9d842605e2b67e8a75200f10}{get\+Students} ()
+\item 
+\hyperlink{class_student}{Student} $\ast$ \hyperlink{class_student_i_o_a513138a007310d8c123ba04ce1af8e4e}{get\+Student\+By\+Id} (Q\+String)
+\item 
+void \hyperlink{class_student_i_o_a051ee9ed55b11ade586200f4175a4225}{remove\+Student\+By\+Id} (Q\+String)
+\item 
+void \hyperlink{class_student_i_o_a5910dacfbf2593ff3cfddc242e3e114b}{add\+Student} (\hyperlink{class_student}{Student} $\ast$)
+\item 
+void \hyperlink{class_student_i_o_ad3c9ae8b97a47fb33373b51d06327bd9}{upload\+Spares} (int, Q\+Url)
+\begin{DoxyCompactList}\small\item\em Copy local data files to application directory. \end{DoxyCompactList}\item 
+void \hyperlink{class_student_i_o_ae12678a20ba4ca76eaa5eff8385b32d8}{upload\+Picture} (Q\+Url)
+\begin{DoxyCompactList}\small\item\em Copy local picture file to application directory. \end{DoxyCompactList}\item 
+void \hyperlink{class_student_i_o_a1cab9c5c4ef79743bef16a6af0b3cbdb}{log\+Sign\+In} (\hyperlink{class_student}{Student} $\ast$)
+\begin{DoxyCompactList}\small\item\em Log \hyperlink{class_student}{Student} sign in to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_student_i_o_a5910dacfbf2593ff3cfddc242e3e114b}\label{class_student_i_o_a5910dacfbf2593ff3cfddc242e3e114b}} 
+\index{Student\+IO@{Student\+IO}!add\+Student@{add\+Student}}
+\index{add\+Student@{add\+Student}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{add\+Student()}{addStudent()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::add\+Student (\begin{DoxyParamCaption}\item[{\hyperlink{class_student}{Student} $\ast$}]{student }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em student} & \hyperlink{class_student}{Student} object. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_a5910dacfbf2593ff3cfddc242e3e114b_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_a5910dacfbf2593ff3cfddc242e3e114b_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_a513138a007310d8c123ba04ce1af8e4e}\label{class_student_i_o_a513138a007310d8c123ba04ce1af8e4e}} 
+\index{Student\+IO@{Student\+IO}!get\+Student\+By\+Id@{get\+Student\+By\+Id}}
+\index{get\+Student\+By\+Id@{get\+Student\+By\+Id}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{get\+Student\+By\+Id()}{getStudentById()}}
+{\footnotesize\ttfamily \hyperlink{class_student}{Student} $\ast$ Student\+I\+O\+::get\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{Q\+String}]{id }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_student}{Student} with matching ID. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_a513138a007310d8c123ba04ce1af8e4e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_aca2e602e9d842605e2b67e8a75200f10}\label{class_student_i_o_aca2e602e9d842605e2b67e8a75200f10}} 
+\index{Student\+IO@{Student\+IO}!get\+Students@{get\+Students}}
+\index{get\+Students@{get\+Students}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{get\+Students()}{getStudents()}}
+{\footnotesize\ttfamily std\+::vector$<$ \hyperlink{class_student}{Student} $\ast$ $>$ Student\+I\+O\+::get\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{class_student}{Student} data. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_aca2e602e9d842605e2b67e8a75200f10_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_a1cab9c5c4ef79743bef16a6af0b3cbdb}\label{class_student_i_o_a1cab9c5c4ef79743bef16a6af0b3cbdb}} 
+\index{Student\+IO@{Student\+IO}!log\+Sign\+In@{log\+Sign\+In}}
+\index{log\+Sign\+In@{log\+Sign\+In}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{log\+Sign\+In()}{logSignIn()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::log\+Sign\+In (\begin{DoxyParamCaption}\item[{\hyperlink{class_student}{Student} $\ast$}]{s }\end{DoxyParamCaption})}
+
+
+
+Log \hyperlink{class_student}{Student} sign in to file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & \hyperlink{class_student}{Student} object. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_student_i_o_a1cab9c5c4ef79743bef16a6af0b3cbdb_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_a1cab9c5c4ef79743bef16a6af0b3cbdb_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_acdcab10501702f652cd46a641d8aa6ec}\label{class_student_i_o_acdcab10501702f652cd46a641d8aa6ec}} 
+\index{Student\+IO@{Student\+IO}!read\+Students@{read\+Students}}
+\index{read\+Students@{read\+Students}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{read\+Students()}{readStudents()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::read\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read Students from data files to vector. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_acdcab10501702f652cd46a641d8aa6ec_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_a051ee9ed55b11ade586200f4175a4225}\label{class_student_i_o_a051ee9ed55b11ade586200f4175a4225}} 
+\index{Student\+IO@{Student\+IO}!remove\+Student\+By\+Id@{remove\+Student\+By\+Id}}
+\index{remove\+Student\+By\+Id@{remove\+Student\+By\+Id}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{remove\+Student\+By\+Id()}{removeStudentById()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::remove\+Student\+By\+Id (\begin{DoxyParamCaption}\item[{Q\+String}]{id }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \hyperlink{class_student}{Student} ID. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_a051ee9ed55b11ade586200f4175a4225_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_ae12678a20ba4ca76eaa5eff8385b32d8}\label{class_student_i_o_ae12678a20ba4ca76eaa5eff8385b32d8}} 
+\index{Student\+IO@{Student\+IO}!upload\+Picture@{upload\+Picture}}
+\index{upload\+Picture@{upload\+Picture}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{upload\+Picture()}{uploadPicture()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::upload\+Picture (\begin{DoxyParamCaption}\item[{Q\+Url}]{url }\end{DoxyParamCaption})}
+
+
+
+Copy local picture file to application directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em url} & Picture location. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_ae12678a20ba4ca76eaa5eff8385b32d8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_ad3c9ae8b97a47fb33373b51d06327bd9}\label{class_student_i_o_ad3c9ae8b97a47fb33373b51d06327bd9}} 
+\index{Student\+IO@{Student\+IO}!upload\+Spares@{upload\+Spares}}
+\index{upload\+Spares@{upload\+Spares}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{upload\+Spares()}{uploadSpares()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::upload\+Spares (\begin{DoxyParamCaption}\item[{int}]{day,  }\item[{Q\+Url}]{url }\end{DoxyParamCaption})}
+
+
+
+Copy local data files to application directory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em day} & Data file day. \\
+\hline
+{\em url} & Data file location. \\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_ad3c9ae8b97a47fb33373b51d06327bd9_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_student_i_o_ac1f03a74030b8324fb12a6cd33da2df3}\label{class_student_i_o_ac1f03a74030b8324fb12a6cd33da2df3}} 
+\index{Student\+IO@{Student\+IO}!write\+Students@{write\+Students}}
+\index{write\+Students@{write\+Students}!Student\+IO@{Student\+IO}}
+\subsubsection{\texorpdfstring{write\+Students()}{writeStudents()}}
+{\footnotesize\ttfamily void Student\+I\+O\+::write\+Students (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Write Students from vector to data files. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_student_i_o_ac1f03a74030b8324fb12a6cd33da2df3_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/peter/\+Documents/\+Projects/northern-\/spare-\/tracker/\hyperlink{studentio_8h}{studentio.\+h}\item 
+/home/peter/\+Documents/\+Projects/northern-\/spare-\/tracker/\hyperlink{studentio_8cpp}{studentio.\+cpp}\end{DoxyCompactItemize}

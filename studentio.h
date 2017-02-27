@@ -18,7 +18,6 @@ class StudentIO
 {
 
 public:
-    StudentIO();
     void readStudents();
     void writeStudents();
     std::vector<Student*> getStudents();

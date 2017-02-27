@@ -1,6 +1,10 @@
 #include "studentwindow.h"
 #include "ui_studentwindow.h"
 
+/**
+ * @brief Initialize Student GUI.
+ * @param parent
+ */
 StudentWindow::StudentWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StudentWindow)
@@ -13,6 +17,10 @@ StudentWindow::StudentWindow(QWidget *parent) :
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(done()));
 }
 
+/**
+ * @brief Initialize GUI with Student data.
+ * @param s Student object.
+ */
 void StudentWindow::setStudent(Student *s)
 {
     ui->id->setText(s->getId());
@@ -27,6 +35,9 @@ void StudentWindow::setStudent(Student *s)
     ui->deleteButton->show();
 }
 
+/**
+ * @brief Clear data from GUI.
+ */
 void StudentWindow::clearData()
 {
     ui->fname->setText("");
@@ -38,6 +49,10 @@ void StudentWindow::clearData()
     ui->deleteButton->hide();
 }
 
+/**
+ * @brief Update GUI with Student data.
+ * @param id Student ID.
+ */
 void StudentWindow::updateData(QString id)
 {
     Student* s = MainWindow::studentIO.getStudentById(id);
@@ -48,11 +63,17 @@ void StudentWindow::updateData(QString id)
     }
 }
 
+/**
+ * @brief Return to Main GUI.
+ */
 void StudentWindow::cancel()
 {
     setCentralWidget(new MainWindow);
 }
 
+/**
+ * @brief Delete Student object from input data.
+ */
 void StudentWindow::deleteStudent()
 {
     MainWindow::studentIO.removeStudentById(ui->id->text());
@@ -60,6 +81,9 @@ void StudentWindow::deleteStudent()
     cancel();
 }
 
+/**
+ * @brief Update Student object with input data.
+ */
 void StudentWindow::done()
 {
     Student *student = MainWindow::studentIO.getStudentById(ui->id->text());
@@ -82,6 +106,9 @@ void StudentWindow::done()
     cancel();
 }
 
+/**
+ * @brief Delete Student GUI.
+ */
 StudentWindow::~StudentWindow()
 {
     delete ui;

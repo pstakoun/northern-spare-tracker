@@ -7,6 +7,10 @@ int MainWindow::sortColumn;
 Qt::SortOrder MainWindow::sortOrder;
 StudentIO MainWindow::studentIO;
 
+/**
+ * @brief Initialize Main GUI and displays Student data.
+ * @param parent
+ */
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -37,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent) :
     update();
 }
 
+/**
+ * @brief Initialize static variables for persistance between MainWindow instances.
+ */
 void MainWindow::init() {
     MainWindow::period = 0;
     MainWindow::searchQuery = "";
@@ -45,6 +52,13 @@ void MainWindow::init() {
     MainWindow::studentIO = StudentIO();
 }
 
+/**
+ * @brief Handle cell change events to update Student picture.
+ * @param row Current cell's row.
+ * @param col Current cell's column.
+ * @param prevRow Previous cell's row.
+ * @param prevCol Previous cell's column.
+ */
 void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
 {
     if (row == -1 || col == -1) {
@@ -58,6 +72,11 @@ void MainWindow::handleCellChanged(int row, int col, int prevRow, int prevCol)
     ui->picture->setPixmap(QPixmap(s->getPicture().toLocalFile()));
 }
 
+/**
+ * @brief Handle double click events to edit and sign in Students.
+ * @param row Current cell's row.
+ * @param col Current cell's column.
+ */
 void MainWindow::handleDoubleClick(int row, int col)
 {
     QString id = ui->studentTable->item(row, 0)->text();
@@ -79,34 +98,57 @@ void MainWindow::handleDoubleClick(int row, int col)
     }
 }
 
+/**
+ * @brief Handle sort events to update static variables for persistance between MainWindow instances.
+ * @param column Sort column.
+ * @param order Sort order.
+ */
 void MainWindow::handleSort(int column, Qt::SortOrder order)
 {
     sortColumn = column;
     sortOrder = order;
 }
 
+/**
+ * @brief Handle period change events to persist between MainWindow instances and update displayed Students.
+ * @param p Current period.
+ */
 void MainWindow::handlePeriodChanged(int p)
 {
     period = p;
     update();
 }
 
+/**
+ * @brief Handle search events to persist between MainWindow instances and update displayed Students.
+ * @param query Search query.
+ */
 void MainWindow::handleSearch(QString query)
 {
     searchQuery = query;
     update();
 }
 
+/**
+ * @brief Show Import GUI.
+ */
 void MainWindow::importStudents()
 {
    setCentralWidget(new ImportWindow);
 }
 
+/**
+ * @brief Show Student modification GUI with no Student.
+ */
 void MainWindow::newStudent()
 {
    setCentralWidget(new StudentWindow);
 }
 
+/**
+ * @brief Show Student modification GUI with existing Student.
+ * @param s Student to edit.
+ */
 void MainWindow::editStudent(Student *s)
 {
    StudentWindow *studentWindow = new StudentWindow;
@@ -114,6 +156,11 @@ void MainWindow::editStudent(Student *s)
    setCentralWidget(studentWindow);
 }
 
+/**
+ * @brief Determine whether or not a Student matches the current search query.
+ * @param s Student to check.
+ * @return Whether or not the given Student matches the current search query.
+ */
 bool MainWindow::matchesQuery(Student *s)
 {
     QStringList searchArr = searchQuery.split(QRegExp("\\s+"), QString::SkipEmptyParts);
@@ -126,6 +173,9 @@ bool MainWindow::matchesQuery(Student *s)
     return true;
 }
 
+/**
+ * @brief Update displayed Students.
+ */
 void MainWindow::update()
 {
     ui->studentTable->setSortingEnabled(false);
@@ -154,6 +204,9 @@ void MainWindow::update()
     ui->studentTable->setSortingEnabled(true);
 }
 
+/**
+ * @brief Delete Main GUI.
+ */
 MainWindow::~MainWindow()
 {
     delete ui;

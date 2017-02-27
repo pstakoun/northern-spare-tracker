@@ -1,6 +1,10 @@
 #include "importwindow.h"
 #include "ui_importwindow.h"
 
+/**
+ * @brief Initialize Import GUI.
+ * @param parent
+ */
 ImportWindow::ImportWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::ImportWindow)
@@ -10,6 +14,10 @@ ImportWindow::ImportWindow(QWidget *parent) :
     connect(ui->doneButton, SIGNAL(clicked()), this, SLOT(done()));
 }
 
+/**
+ * @brief Handle file drop event.
+ * @param ev
+ */
 void ImportWindow::dropEvent(QDropEvent *ev)
 {
     ui->label->setText("Importing...");
@@ -30,17 +38,27 @@ void ImportWindow::dropEvent(QDropEvent *ev)
     ui->label->setText("Done");
 }
 
+/**
+ * @brief Handle file drag event.
+ * @param ev
+ */
 void ImportWindow::dragEnterEvent(QDragEnterEvent *ev)
 {
     ui->label->setText("Drop to Import");
     ev->accept();
 }
 
+/**
+ * @brief Return to Main GUI.
+ */
 void ImportWindow::done()
 {
     setCentralWidget(new MainWindow);
 }
 
+/**
+ * @brief Delete Import GUI.
+ */
 ImportWindow::~ImportWindow()
 {
     delete ui;

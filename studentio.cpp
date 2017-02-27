@@ -1,16 +1,19 @@
 #include "studentio.h"
 
-StudentIO::StudentIO()
-{
-
-}
-
+/**
+ * @brief Trim whitespace from string.
+ * @param s Initial string.
+ * @return String without whitespace.
+ */
 static inline std::string &rtrim(std::string &s) {
     s.erase(std::find_if(s.rbegin(), s.rend(),
             std::not1(std::ptr_fun<int, int>(std::isspace))).base(), s.end());
     return s;
 }
 
+/**
+ * @brief Read Students from data files to vector.
+ */
 void StudentIO::readStudents()
 {
     students.clear();
@@ -67,6 +70,9 @@ void StudentIO::readStudents()
     }
 }
 
+/**
+ * @brief Write Students from vector to data files.
+ */
 void StudentIO::writeStudents()
 {
     std::string paths[] = {QCoreApplication::applicationDirPath().toStdString() + "/data/day1.csv", QCoreApplication::applicationDirPath().toStdString() + "/data/day2.csv"};
@@ -88,11 +94,17 @@ void StudentIO::writeStudents()
     }
 }
 
+/**
+ * @return Student data.
+ */
 std::vector<Student*> StudentIO::getStudents()
 {
     return students;
 }
 
+/**
+ * @return Student with matching ID.
+ */
 Student* StudentIO::getStudentById(QString id)
 {
     for (int i = 0; i < students.size(); i++)
@@ -101,6 +113,9 @@ Student* StudentIO::getStudentById(QString id)
     return nullptr;
 }
 
+/**
+ * @param id Student ID.
+ */
 void StudentIO::removeStudentById(QString id)
 {
     for (int i = 0; i < students.size(); i++) {
@@ -111,12 +126,20 @@ void StudentIO::removeStudentById(QString id)
     }
 }
 
+/**
+ * @param student Student object.
+ */
 void StudentIO::addStudent(Student *student)
 {
     if (getStudentById(student->getId()) == nullptr)
         students.push_back(student);
 }
 
+/**
+ * @brief Copy local data files to application directory.
+ * @param day Data file day.
+ * @param url Data file location.
+ */
 void StudentIO::uploadSpares(int day, QUrl url)
 {
     if (!QDir("data").exists()) {
@@ -132,6 +155,10 @@ void StudentIO::uploadSpares(int day, QUrl url)
     QFile::copy(url.toLocalFile(), path);
 }
 
+/**
+ * @brief Copy local picture file to application directory.
+ * @param url Picture location.
+ */
 void StudentIO::uploadPicture(QUrl url)
 {
     if (!QDir("data/pictures").exists()) {
@@ -147,6 +174,10 @@ void StudentIO::uploadPicture(QUrl url)
     QFile::copy(url.toLocalFile(), path);
 }
 
+/**
+ * @brief Log Student sign in to file.
+ * @param s Student object.
+ */
 void StudentIO::logSignIn(Student *s)
 {
     if (!QDir("data").exists()) {
